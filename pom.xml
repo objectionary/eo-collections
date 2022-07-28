@@ -27,7 +27,7 @@ SOFTWARE.
   <parent>
     <groupId>com.jcabi</groupId>
     <artifactId>parent</artifactId>
-    <version>0.57.2</version>
+    <version>0.59.0</version>
   </parent>
   <groupId>org.eolang</groupId>
   <artifactId>eo-collections</artifactId>
@@ -119,6 +119,11 @@ SOFTWARE.
               <goal>unspile</goal>
               <goal>copy</goal>
             </goals>
+            <configuration>
+              <keepBinaries>
+                <glob>EOorg/EOeolang/EOcollections/**</glob>
+              </keepBinaries>
+            </configuration>
           </execution>
           <execution>
             <id>test-compile</id>
@@ -129,6 +134,7 @@ SOFTWARE.
               <goal>transpile</goal>
             </goals>
             <configuration>
+              <scope>test</scope>
               <sourcesDir>${project.basedir}/src/test/eo</sourcesDir>
               <targetDir>${project.build.directory}/eo-test</targetDir>
               <addSourcesRoot>false</addSourcesRoot>
@@ -151,6 +157,7 @@ SOFTWARE.
             <configuration>
               <excludes combine.children="append">
                 <exclude>pmd:.*</exclude>
+                <exclude>duplicatefinder:.*</exclude>
               </excludes>
             </configuration>
           </plugin>
