@@ -121,7 +121,7 @@ SOFTWARE.
             </goals>
             <configuration>
               <keepBinaries>
-                <glob>EOorg/EOorg.EOeolang/EOcollections/**</glob>
+                <glob>EOorg/EOeolang/EOcollections/**</glob>
               </keepBinaries>
             </configuration>
           </execution>
