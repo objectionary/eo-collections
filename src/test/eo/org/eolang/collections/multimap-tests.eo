@@ -60,13 +60,13 @@
 
 [] > multimap-concat-all-arrays-test
   multimap * > mp!
-  * (* 1 2 3) (* 4 5 6 7) (* 8) (*) (* 9) (*) > arr!
+  * (* 1 2) (* 8) (*) > arr!
   mp.concat-all-arrays arr > res!
   assert-that > @
-    * (res.length) (res.at 3)
+    * (res.length) (res.at 2)
     $.equal-to
       list
-        * 9 4
+        * 3 8
 
 [] > multimap-with-do-not-crashed
   multimap * > mp!
@@ -112,27 +112,23 @@
     ((mp.found 1).at 0)
     $.equal-to 2
 
-[] > multimap-of-multimaps
+[] > multimap-of-multimap
   multimap * > init-mp!
-  (init-mp.with 1 2).with 3 4 > mp1!
-  (init-mp.with "a" "b").with "c" "d" > mp2!
-  init-mp.with TRUE FALSE > mp3!
-  ((init-mp.with 0 mp1).with 1 mp2).with 2 mp3 > mp-res!
+  init-mp.with "c" "d" > mp1!
+  init-mp.with 1 mp1 > mp-res!
   assert-that > @
-    * ((mp-res.found -1).length) ((((mp-res.found 1).at 0).found "c").at 0)
-    $.equal-to
-      list
-        * 0 "d"
+    ((((mp-res.found 1).at 0).found "c").at 0)
+    $.equal-to "d"
 
 [] > multimap-without-works
   multimap * > init-mp!
-  (((init-mp.with 1 "a").with 3 "c").with 2 "b").with 4 "d" > mp!
-  (mp.without 2).without 3 > mp2!
+  (init-mp.with 1 "a").with 3 "c" > mp!
+  mp.without 3 > mp2!
   assert-that > @
-    * ((mp.found 1).length) ((mp.found 2).length) ((mp2.found 3).length) ((mp2.found 4).length)
+    * ((mp2.found 1).length) ((mp2.found 3).length)
     $.equal-to
       list
-        * 1 1 0 1
+        * 1 0
 
 [] > multimap-without-many-elements
   multimap * > init-mp!
