@@ -54,18 +54,14 @@
     ((mp.found 1).at 0)
     $.equal-to "a"
 
-[] > map-of-maps
+# This test has been temporarily disabled
+[] > map-of-map
+  map * > init-mp!
+  init-mp.with "c" "d" > mp1!
+  init-mp.with 1 mp1 > mp-res!
   nop > @
-    map * > init-mp!
-    (init-mp.with 1 2).with 3 4 > mp1!
-    (init-mp.with "a" "b").with "c" "d" > mp2!
-    init-mp.with TRUE FALSE > mp3!
-    ((init-mp.with 0 mp1).with 1 mp2).with 2 mp3 > mp-res!
-    assert-that
-      * ((mp-res.found -1).length) ((((mp-res.found 1).at 0).found "c").at 0)
-      $.equal-to
-        list
-          * 0 "d"
+    ((((mp-res.found 1).at 0).found "c").at 0)
+    $.equal-to "d"
 
 [] > map-without-works
   map * > init-mp!
@@ -86,3 +82,11 @@
     $.equal-to
       list
         * 2 1 "c"
+
+[] > map-keys-test
+  ((map *).with 11 "a").with 5 "b" > mp!
+  assert-that > @
+    times.
+      ((mp.keys).at 0)
+      ((mp.keys).at 1)
+    $.equal-to 55
