@@ -84,6 +84,13 @@
   # Map without index. Here "f" must be an abstract
   # object with one free attribute, for the element
   # of the array.
+  [f] > mapped
+    ^.mappedi > @
+      [x idx]
+        &.f x > @
+
+  # @todo #20:30 min. DEPRICATED, please remove after update of objectionary/eo.
+  #  some objects in objectionary/eo still use map
   [f] > map
     ^.mappedi > @
       [x idx]
