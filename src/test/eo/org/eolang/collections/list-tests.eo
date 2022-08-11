@@ -85,7 +85,7 @@
 [] > reduce-with-index-test
   * 2 2 > src
   assert-that > @
-    reducei.
+    reducedi.
       list
         * 1 1
       0
@@ -96,9 +96,9 @@
             src.at i
     $.equal-to 6
 
-[] > reducei-long-int-array
+[] > reducedi-long-int-array
   assert-that > @
-    reducei.
+    reducedi.
       list
         * 1 2 3 4
       0
@@ -108,9 +108,9 @@
           a
     $.equal-to 10
 
-[] > reducei-bools-array
+[] > reducedi-bools-array
   assert-that > @
-    reducei.
+    reducedi.
       list
         * TRUE TRUE FALSE
       TRUE
@@ -120,13 +120,13 @@
           a
     $.equal-to FALSE
 
-[] > reducei-nested-functions
+[] > reducedi-nested-functions
   [] > a
     10 > @
   [] > b
     500 > @
   assert-that > @
-    reducei.
+    reducedi.
       list
         * a b
       0

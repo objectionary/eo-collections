@@ -44,7 +44,7 @@ The attribute `slice` is a part of the array.
 ```
 [] > list-test
   QQ.hamcrest.assert-that > @
-    reducei.
+    reducedi.
       QQ.collections.list
         * TRUE TRUE FALSE
       TRUE
