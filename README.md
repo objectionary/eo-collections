@@ -38,7 +38,7 @@ The attribute `eq` is TRUE if each element of the array is equal to the correspo
 The attribute `without` is a new array with the i-th element removed.
 
 The attributes `each`, `reduce`, and `map` are respectively similar to forEach, reduce, find, reduce, and map methods of Array object in JavaScript (ECMA, 2011). 
-A few “twin” attributes `reducedi`,  and `mapi`are semantically the same, but with an extra int argument as a counter of a cycle.
+A few “twin” attributes `reducedi`,  and `mappedi`are semantically the same, but with an extra int argument as a counter of a cycle.
 The attribute `slice` is a part of the array.
 
 ```

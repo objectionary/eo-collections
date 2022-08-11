@@ -155,9 +155,9 @@
           x
     $.equal-to -24
 
-[] > mapi-should-works
+[] > mappedi-should-works
   assert-that > @
-    mapi.
+    mappedi.
       list
         * 1 2 3 4
       [x i]
@@ -167,9 +167,9 @@
         * 2 4 6 8
 
 # this test performs mapping of list using the index for it
-[] > mapi-index-can-be-accessed
+[] > mappedi-index-can-be-accessed
   [numbers...] > multipliedByNaturalSequence
-    mapi. > @
+    mappedi. > @
       list numbers
       [current index]
         times. > @
