@@ -145,7 +145,7 @@
 # reduce without index test
 [] > reduce-without-index-test
   assert-that > @
-    reduce.
+    reduced.
       list
         * 1 2 3 4
       -1
@@ -361,7 +361,7 @@
     7
 
   [] > foo
-    reduce. > res
+    reduced. > res
       list
         * 0
       *

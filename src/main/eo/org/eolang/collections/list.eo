@@ -81,6 +81,16 @@
         acc
 
   # Reduce from start "a" using the function "f"
+  [a f] > reduced
+    ^.reducedi > @
+      a
+      [a idx item]
+        &.f > @
+          a
+          item
+
+  # @todo #20:30 min. DEPRICATED, please remove after update of objectionary/eo.
+  #  bytes.as-hash in objectionary/eo still use reduce
   [a f] > reduce
     ^.reducedi > @
       a
@@ -162,7 +172,7 @@
 
   # Returns the combined current and passed arrays
   [passed] > concat
-    reduce. > @!
+    reduced. > @!
       list
         passed
       ^
