@@ -1,0 +1,8 @@
+objectionary/objects/org/eolang/collections/list.eo
+objectionary/objects/org/eolang/collections/bytes-as-array.eo
+objectionary/objects/org/eolang/collections/map.eo
+objectionary/objects/org/eolang/collections/multimap.eo
+objectionary/tests/org/eolang/collections/bytes-as-array-tests.eo
+objectionary/tests/org/eolang/collections/list-tests.eo
+objectionary/tests/org/eolang/collections/map-tests.eo
+objectionary/tests/org/eolang/collections/multimap-tests.eo
