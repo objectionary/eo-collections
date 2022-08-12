@@ -182,6 +182,8 @@
       [a x]
         a.with x > @
 
+  # Returns index of the first particular item in list.
+  # If the list has no this item, found returns -1
   [wanted] > found
     ^.reducedi > @
       -1
