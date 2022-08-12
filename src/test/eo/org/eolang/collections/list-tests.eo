@@ -395,3 +395,10 @@
   assert-that > @
     lst.found 2
     $.equal-to 1
+
+[] > is-found-first-index
+  list > lst
+    * "qwerty" "asdfgh" 3 "qwerty"
+  assert-that > @
+    lst.found "qwerty"
+    $.equal-to 0
