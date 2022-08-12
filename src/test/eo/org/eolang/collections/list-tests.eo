@@ -381,3 +381,17 @@
     seq > @
       (res.at 0).write 7
       (res.at 0)
+
+[] > is-found-1
+  list > lst
+    * 1 2 3
+  assert-that > @
+    lst.found 2
+    $.equal-to 1
+
+[] > is-found-2
+  list > lst
+    * "qwerty" 2 3
+  assert-that > @
+    lst.found 2
+    $.equal-to 1

@@ -181,3 +181,18 @@
       ^
       [a x]
         a.with x > @
+
+  [wanted] > found
+    ^.reducedi > @
+      -1
+      [acc i item]
+        if. > @
+          and.
+            eq.
+              acc
+              -1
+            eq.
+              item
+              wanted
+          i
+          acc.plus 0
