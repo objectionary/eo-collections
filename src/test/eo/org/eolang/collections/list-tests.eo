@@ -403,7 +403,7 @@
     lst.found -1
     $.equal-to 0
 
-[] > is-not-found-4
+[] > is-not-found
   list > lst
     * "qwerty" 2 3
   assert-that > @
