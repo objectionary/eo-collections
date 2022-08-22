@@ -34,6 +34,14 @@
       arr.length
       0
 
+  # Create a new list with this element added to
+  # the end of it.
+  [x] > with
+    list > @
+      with.
+        arr
+        x
+
   # Reduce with index from start "a" using the function "f".
   # Here "f" must be an abstract
   # object with three free attributes. The first
@@ -198,9 +206,3 @@
               wanted
           i
           acc.plus 0
-
-  [x] > with
-    list > @
-      with.
-        arr
-        x
