@@ -427,3 +427,15 @@
   assert-that > @
     list2.at 0
     $.equal-to 2
+
+[] > concat-returns-list
+  list (* 0 1) > list1
+  list (* 2 3) > list2
+  without. > list3
+    concat.
+      list1
+      list2
+    0
+  assert-that > @
+    list3.at 0
+    $.equal-to 1
