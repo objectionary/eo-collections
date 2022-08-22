@@ -198,3 +198,9 @@
               wanted
           i
           acc.plus 0
+
+  [x] > with
+    list > @
+      with.
+        arr
+        x
