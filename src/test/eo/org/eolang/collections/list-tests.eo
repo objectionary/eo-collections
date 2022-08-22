@@ -416,3 +416,14 @@
   assert-that > @
     lst.found "qwerty"
     $.equal-to 0
+
+[] > concat-of-two-lists
+  list (* 1 2) > list1
+  without. > list2
+    with.
+      list1
+      3
+    0
+  assert-that > @
+    list2.at 0
+    $.equal-to 2
