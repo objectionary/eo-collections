@@ -417,7 +417,7 @@
     lst.found "qwerty"
     $.equal-to 0
 
-[] > concat-of-two-lists
+[] > list-with-without
   list (* 1 2) > list1
   without. > list2
     with.
