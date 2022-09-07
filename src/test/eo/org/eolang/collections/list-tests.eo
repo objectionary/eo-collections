@@ -355,7 +355,7 @@
           args.
             b 1 2 "fail"
 
-[] > reduce-with-memory-test
+[] > reduce-can-work-memory
   eq. > @
     foo
     7
@@ -371,7 +371,7 @@
       (res.at 0).write 7
       (res.at 0)
 
-[] > reduce-with-memory-test-2
+[] > reduce-can-work-memory-2
   eq. > @
     foo
     7
