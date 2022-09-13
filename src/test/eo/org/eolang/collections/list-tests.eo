@@ -440,13 +440,13 @@
     list3.at 0
     $.equal-to 1
 
-[] > double-reduce-test
-  reduce. > res!
+[] > nested-reduced
+  reduced. > res!
     list
       (* 1)
     (* (*))
     [a x]
-      reduce. > @
+      reduced. > @
         list
           (* (*))
         (*)
@@ -456,13 +456,13 @@
     ((res.at 0).length)
     $.equal-to 0
 
-[] > double-reduce-test-2
-  reduce. > res!
+[] > nested-reduced-2
+  reduced. > res!
     list
       (* 1)
     (* (*))
     [a x]
-      reduce. > @
+      reduced. > @
         list
           a
         (*)
