@@ -481,3 +481,43 @@
     $.equal-to
       list
         * 3 4 5 6
+
+[] > list-sorted-2
+  sorted. > res!
+    list
+      * 5 3 6 4
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 3 4 5 6
+
+[] > reversed-list-sorted
+  sorted. > res!
+    list
+      * 4 3 2 1
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 1 2 3 4
+
+[] > similar-elements-list-sorted
+  sorted. > res!
+    list
+      * 1 1 1
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 1 1 1
+
+[] > one-element-list-sorted
+  sorted. > res!
+    list
+      * 42
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 42
