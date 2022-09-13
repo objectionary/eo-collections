@@ -472,14 +472,12 @@
     ((res.at 0).length)
     $.equal-to 0
 
-[] > zzz-test
+[] > list-sorted
   sorted. > res!
     list
-      * 0 1 2 3
-  stdout > @
-    sprintf
-      "%d %d %d %d\n"
-      res.at 0
-      res.at 1
-      res.at 2
-      res.at 3
+      * 4 6 3 5
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 3 4 5 6
