@@ -439,3 +439,35 @@
   assert-that > @
     list3.at 0
     $.equal-to 1
+
+[] > double-reduce-test
+  reduce. > res!
+    list
+      (* 1)
+    (* (*))
+    [a x]
+      reduce. > @
+        list
+          (* (*))
+        (*)
+        [aaa xxx]
+          (aaa.with xxx) > @
+  assert-that > @
+    ((res.at 0).length)
+    $.equal-to 0
+
+[] > double-reduce-test-2
+  reduce. > res!
+    list
+      (* 1)
+    (* (*))
+    [a x]
+      reduce. > @
+        list
+          a
+        (*)
+        [aaa xxx]
+          (aaa.with xxx) > @
+  assert-that > @
+    ((res.at 0).length)
+    $.equal-to 0
