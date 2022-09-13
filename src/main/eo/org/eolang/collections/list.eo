@@ -228,8 +228,8 @@
               seq > @
                 if.
                   lt.
-                    (res.at j)
                     (res.at (j.plus 1))
+                    (res.at j)
                   swap (res.at j) (res.at (j.plus 1))
                   TRUE
                 j.write (j.plus 1)
