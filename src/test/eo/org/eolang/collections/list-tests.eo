@@ -440,7 +440,7 @@
     list3.at 0
     $.equal-to 1
 
-[] > nested-reduced
+[] > nested-reduced-with-literal
   reduced. > res!
     list
       (* 1)
@@ -456,7 +456,7 @@
     ((res.at 0).length)
     $.equal-to 0
 
-[] > nested-reduced-2
+[] > nested-reduced--without-literal
   reduced. > res!
     list
       (* 1)
