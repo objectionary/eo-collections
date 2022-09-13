@@ -206,3 +206,39 @@
               wanted
           i
           acc.plus 0
+
+  # Returns a new list sorted via lt method
+  [] > sorted
+    reduced. > res
+      ^
+      *
+      [a x]
+        a.with (memory x) > @
+    memory 0 > i
+    memory 0 > j
+    while. > sorting-process
+      (i.lt (res.length))
+      [iter-i]
+        seq > @
+          j.write 0
+          i.write (i.plus 1)
+          while.
+            ((j.plus 1).lt (res.length))
+            [iter-j]
+              seq > @
+                if.
+                  lt.
+                    (res.at j)
+                    (res.at (j.plus 1))
+                  swap (res.at j) (res.at (j.plus 1))
+                  TRUE
+                j.write (j.plus 1)
+    seq > @
+      sorting-process
+      res
+
+    [a b] > swap
+      seq > @
+        a > temp!
+        a.write b
+        b.write temp
