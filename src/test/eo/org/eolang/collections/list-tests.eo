@@ -521,3 +521,23 @@
     $.equal-to
       list
         * 42
+
+[] > empty-list-sorted
+  sorted. > res!
+    list
+      *
+  assert-that > @
+    res
+    $.equal-to
+      list
+        *
+
+[] > negative-numbers-list-sorted
+  sorted. > res!
+    list
+      * 1 2 -3 -4
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * -4 -3 1 2
