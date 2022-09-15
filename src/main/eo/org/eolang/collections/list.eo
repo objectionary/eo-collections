@@ -41,6 +41,7 @@
       with.
         arr
         x
+
   # Reduce with index from start "a" using the function "f".
   # Here "f" must be an abstract
   # object with three free attributes. The first
