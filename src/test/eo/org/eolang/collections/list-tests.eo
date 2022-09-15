@@ -439,3 +439,105 @@
   assert-that > @
     list3.at 0
     $.equal-to 1
+
+[] > nested-reduced-with-literal
+  reduced. > res!
+    list
+      (* 1)
+    (* (*))
+    [a x]
+      reduced. > @
+        list
+          (* (*))
+        (*)
+        [aaa xxx]
+          (aaa.with xxx) > @
+  assert-that > @
+    ((res.at 0).length)
+    $.equal-to 0
+
+[] > nested-reduced-without-literal
+  reduced. > res!
+    list
+      (* 1)
+    (* (*))
+    [a x]
+      reduced. > @
+        list
+          a
+        (*)
+        [aaa xxx]
+          (aaa.with xxx) > @
+  assert-that > @
+    ((res.at 0).length)
+    $.equal-to 0
+
+[] > list-sorted
+  sorted. > res!
+    list
+      * 4 6 3 5
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 3 4 5 6
+
+[] > list-sorted-2
+  sorted. > res!
+    list
+      * 5 3 6 4
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 3 4 5 6
+
+[] > reversed-list-sorted
+  sorted. > res!
+    list
+      * 4 3 2 1
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 1 2 3 4
+
+[] > similar-elements-list-sorted
+  sorted. > res!
+    list
+      * 1 1 1
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 1 1 1
+
+[] > one-element-list-sorted
+  sorted. > res!
+    list
+      * 42
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 42
+
+[] > empty-list-sorted
+  sorted. > res!
+    list
+      *
+  assert-that > @
+    res
+    $.equal-to
+      list
+        *
+
+[] > negative-numbers-list-sorted
+  sorted. > res!
+    list
+      * 1 2 -3 -4
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * -4 -3 1 2
