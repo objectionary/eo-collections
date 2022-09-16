@@ -76,17 +76,6 @@
           a
           item
 
-  # @todo #20:30 min. DEPRICATED, please remove after update of objectionary/eo.
-  #  bytes.as-hash in objectionary/eo still use reduce
-  #  so wnen it will be changed delete that
-  [a f] > reduce
-    ^.reducedi > @
-      a
-      [a idx item]
-        &.f > @
-          a
-          item
-
   # Map with index. Here "f" must be an abstract
   # object with two free attributes. The first
   # one for the element of the array, the second one
