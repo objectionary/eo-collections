@@ -168,14 +168,14 @@
 
   # Returns a new list sorted via lt method
   [] > sorted
-    reducedi. > res
+    reducedi. > res!
       ^
       *
       [a i x]
-        a.with (memory x) > @
+        a.with (memory i) > @
     memory 0 > i
     memory 0 > j
-    while. > sorting-process
+    while. > sorting-process!
       (i.lt (res.length))
       [iter-i]
         seq > @
@@ -187,14 +187,19 @@
               seq > @
                 if.
                   lt.
-                    (res.at (j.plus 1))
-                    (res.at j)
+                    arr.at (res.at (j.plus 1))
+                    arr.at (res.at j)
                   swap (res.at j) (res.at (j.plus 1))
                   TRUE
                 j.write (j.plus 1)
     seq > @
       sorting-process
-      res
+      reduced.
+        list
+          res
+        *
+        [a x]
+          a.with (arr.at x) > @
 
     [a b] > swap
       seq > @
