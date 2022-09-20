@@ -541,3 +541,51 @@
     $.equal-to
       list
         * -4 -3 1 2
+
+[] > complex-objects-list-compairing
+  list > res!
+    *
+      (* 0 1)
+      (* 4 0)
+      (* 7 3)
+  assert-that > @
+    res
+    $.equal-to
+      list
+        *
+          list (* 0 1)
+          list (* 4 0)
+          list (* 7 3)
+
+  [pair] > comparable-pair
+    pair > @
+
+    [x] > lt
+      lt. > @
+        ^.at 0
+        x.at 0
+
+[] > complex-objects-list-sorted
+  sorted. > res!
+    list
+      *
+        comparable-pair (* 7 3)
+        comparable-pair (* 0 1)
+        comparable-pair (* 4 0)
+  assert-that > @
+    res
+    $.equal-to
+      list
+        *
+          list (* 0 1)
+          list (* 4 0)
+          list (* 7 3)
+
+  [pair] > comparable-pair
+    pair > @
+
+    [x] > lt
+      lt. > @
+        ^.at 0
+        x.at 0
+
