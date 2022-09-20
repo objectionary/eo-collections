@@ -168,10 +168,10 @@
 
   # Returns a new list sorted via lt method
   [] > sorted
-    reduced. > res
+    reducedi. > res
       ^
       *
-      [a x]
+      [a i x]
         a.with (memory x) > @
     memory 0 > i
     memory 0 > j
