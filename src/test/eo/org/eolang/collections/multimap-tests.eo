@@ -29,19 +29,17 @@
 +version 0.0.0
 
 [] > rebuild-do-not-crush
-  multimap * > mmp
   * 1 2 > harr
   * 3 4 > arr
-  mmp.rebuild harr arr > res
+  multimap.rebuild harr arr > res
   assert-that > @
     res.length
     $.equal-to 2
 
 [] > rebuild-correct
-  multimap * > mmp
   * 1 0 3 0 > harr
   * (* 1 "a") (* 4 "b") (* "c" 5) (* 8 7) > arr
-  mmp.rebuild harr arr > res
+  multimap.rebuild harr arr > res
   assert-that > @
     * (((res.at 0).at 0).at 0) (((res.at 3).at 0).at 1)
     $.equal-to
@@ -49,9 +47,8 @@
         * 4 5
 
 [] > multimap-pairs-to-hash-test
-  multimap * > mp!
   * (* 2 3) (* 3 4) > arr!
-  mp.pairs-to-hash arr > tarr!
+  multimap.pairs-to-hash arr > tarr!
   assert-that > @
     * (tarr.length) (tarr.at 0) (tarr.at 1)
     $.equal-to
@@ -175,3 +172,98 @@
       ((mp.keys).at 0)
       ((mp.keys).at 1)
     $.equal-to 55
+
+[] > comparable-pair-correctness
+  multimap.rebuilded.comparable-pair (* 0 "") > p1!
+  multimap.rebuilded.comparable-pair (* 2 TRUE) > p2!
+  assert-that > @
+    lt.
+      p1
+      p2
+    $.equal-to TRUE
+
+[] > comparable-pair-correctness-2
+  multimap.rebuilded.comparable-pair (* 42 -42) > p1!
+  multimap.rebuilded.comparable-pair (* -2 "") > p2!
+  assert-that > @
+    lt.
+      p1
+      p2
+    $.equal-to FALSE
+
+[] > create-array-by-hash-correctness
+  * (* 0 "a") (* 0 "b") (* 3 "c") > arr!
+  multimap.rebuilded.create-array-by-hash arr 0 0 > res!
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * "a" "b"
+
+[] > create-array-by-hash-correctness-2
+  * (* 0 "a") (* 0 "b") (* 3 "c") > arr!
+  multimap.rebuilded.create-array-by-hash arr 0 1 > res!
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * "b"
+
+[] > create-array-by-hash-correctness-3
+  * (* 0 "a") (* 3 "b") (* 3 "c") > arr!
+  multimap.rebuilded.create-array-by-hash arr 3 1 > res!
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * "b" "c"
+
+[] > array-filling-to-size-correctness
+  * > arr!
+  multimap.rebuilded.fill-to-size arr 0 > res!
+  assert-that > @
+    res
+    $.equal-to
+      list
+        *
+
+[] > array-filling-to-size-correctness-2
+  * > arr!
+  multimap.rebuilded.fill-to-size arr 2 > res!
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * (list *) (list *)
+
+[] > array-filling-to-size-correctness-3
+  * 0 > arr!
+  multimap.rebuilded.fill-to-size arr 2 > res!
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 0 (list *)
+
+[] > temp-test
+  * 2 3 > arr!
+  * 0 1 > harr!
+  mappedi. > wrapped-pairs!
+    list
+      arr
+    [x i]
+      mod. > new-index!
+        QQ.math.number
+          (harr.at i)
+        (arr.length)
+      (multimap.rebuilded.comparable-pair) (* new-index x) > @
+  sorted. > sorted-pairs!
+    list
+      wrapped-pairs
+  assert-that > @
+    wrapped-pairs
+    $.equal-to
+      list
+        *
+          list (* 0 2)
+          list (* 1 3)
