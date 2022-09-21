@@ -67,41 +67,8 @@
           carr
         acc
 
-  # @todo #20:30 min. DEPRICATED, please remove after update of objectionary/eo.
-  #  string.joined in objectionary/eo still use reducei
-  #  so wnen it will be changed delete that
-  [a f] > reducei
-    rec-reduce (* a 0) f arr > @
-
-    [acc-index func carr] > rec-reduce
-      (acc-index.at 0) > acc
-      (acc-index.at 1) > index
-      if. > @
-        (index.lt (carr.length))
-        rec-reduce
-          *
-            func
-              acc
-              index
-              (carr.at index)
-            (index.plus 1)
-          func
-          carr
-        acc
-
   # Reduce from start "a" using the function "f"
   [a f] > reduced
-    ^.reducedi > @
-      a
-      [a idx item]
-        &.f > @
-          a
-          item
-
-  # @todo #20:30 min. DEPRICATED, please remove after update of objectionary/eo.
-  #  bytes.as-hash in objectionary/eo still use reduce
-  #  so wnen it will be changed delete that
-  [a f] > reduce
     ^.reducedi > @
       a
       [a idx item]
@@ -126,14 +93,6 @@
   # object with one free attribute, for the element
   # of the array.
   [f] > mapped
-    ^.mappedi > @
-      [x idx]
-        &.f x > @
-
-  # @todo #20:30 min. DEPRICATED, please remove after update of objectionary/eo.
-  #  some objects in objectionary/eo still use map
-  #  so wnen it will be changed delete that
-  [f] > map
     ^.mappedi > @
       [x idx]
         &.f x > @
@@ -209,14 +168,14 @@
 
   # Returns a new list sorted via lt method
   [] > sorted
-    reduced. > res
+    reducedi. > res!
       ^
       *
-      [a x]
-        a.with (memory x) > @
+      [a i x]
+        a.with (memory i) > @
     memory 0 > i
     memory 0 > j
-    while. > sorting-process
+    while. > sorting-process!
       (i.lt (res.length))
       [iter-i]
         seq > @
@@ -228,14 +187,19 @@
               seq > @
                 if.
                   lt.
-                    (res.at (j.plus 1))
-                    (res.at j)
+                    arr.at (res.at (j.plus 1))
+                    arr.at (res.at j)
                   swap (res.at j) (res.at (j.plus 1))
                   TRUE
                 j.write (j.plus 1)
     seq > @
       sorting-process
-      res
+      reduced.
+        list
+          res
+        *
+        [a x]
+          a.with (arr.at x) > @
 
     [a b] > swap
       seq > @
