@@ -245,7 +245,7 @@
       list
         * 0 (list *)
 
-[] > temp-test
+[] > hash-table-sorting
   * 2 3 > arr!
   * 0 1 > harr!
   mappedi. > wrapped-pairs!
@@ -267,3 +267,65 @@
         *
           list (* 0 2)
           list (* 1 3)
+
+[] > hash-table-building-correctness
+  * (* 0 1) (* 0 1) > lst!
+  memory 0 > curr-hash
+  reducedi. > res!
+    list
+      lst
+    *
+    [a i x]
+      seq > @
+        if.
+          gte.
+            (x.at 0)
+            curr-hash
+          seq
+            curr-hash.write (x.at 0)
+            multimap.rebuilded.fill-to-size a curr-hash > filled-to-size!
+            multimap.rebuilded.create-array-by-hash lst curr-hash i > curr-hash-added!
+            curr-hash.write (curr-hash.plus 1)
+            QQ.io.stdout
+              QQ.txt.sprintf
+                "%d\n"
+                curr-hash-added.length
+            filled-to-size.with curr-hash-added
+          a
+  assert-that > smth
+    res
+    $.equal-to
+      list
+        *
+          list
+            *
+              1
+              2
+          list
+            *
+  assert-that > @
+    length.
+      multimap.rebuilded.fill-to-size
+        res
+        lst.length
+    $.equal-to 2
+
+[] > rebuilded-do-not-crush
+  nop > @
+    * 1 2 > harr!
+    * 3 4 > arr!
+    multimap.rebuilded harr arr > res!
+    assert-that
+      res.length
+      $.equal-to 2
+
+[] > rebuilded-correct
+  nop > @
+    * 1 0 3 0 > harr!
+    * (* 1 "a") (* 4 "b") (* "c" 5) (* 8 7) > arr!
+    multimap.rebuilded harr arr > res!
+    assert-that
+      * (((res.at 0).at 0).at 0) (((res.at 3).at 0).at 1)
+      $.equal-to
+        list
+          * 4 5
