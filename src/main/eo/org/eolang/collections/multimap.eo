@@ -125,7 +125,7 @@
       list
         wrapped-pairs
     memory 0 > curr-hash
-    reducedi. > @
+    reducedi. > almost-res!
       list
         sorted-pairs
       *
@@ -137,10 +137,14 @@
           seq
             curr-hash.write (x.at 0)
             fill-to-size a curr-hash > filled-to-size!
-            create-array-by-hash a curr-hash i > curr-hash-added!
+            create-array-by-hash sorted-pairs curr-hash i > curr-hash-added!
             curr-hash.write (curr-hash.plus 1)
-            curr-hash-added
+            filled-to-size.with curr-hash-added
           a
+    fill-to-size > @
+      almost-res
+      length.
+        sorted-pairs
 
     [pair] > comparable-pair
       pair > @
