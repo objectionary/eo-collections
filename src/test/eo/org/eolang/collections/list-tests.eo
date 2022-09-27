@@ -588,3 +588,16 @@
       lt. > @
         ^.at 0
         x.at 0
+
+# This code should prints "0 1"
+[] > reduced-printing-test
+  reduced. > @
+    list
+      * 0 1
+    TRUE
+    [a x]
+      seq > @
+        stdout
+          sprintf
+            "%d\n"
+            x
