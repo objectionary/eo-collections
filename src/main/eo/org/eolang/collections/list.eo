@@ -232,5 +232,24 @@
         0
         f
         arr
+        *
 
-      [index func carr] > rec-filtered
+      [index func carr new-list] > rec-filtered
+        (carr.at index) > item
+        seq > @
+          func > acc!
+            item
+            index
+          if.
+            eq.
+              acc
+              TRUE
+            new-list.with item
+          if.
+            ((index.plus 1).eq (carr.length))
+            new-list
+            rec-filtered
+              (index.plus 1)
+              f
+              carr
+              new-list
