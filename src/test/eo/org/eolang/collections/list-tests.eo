@@ -601,3 +601,15 @@
           sprintf
             "%d\n"
             x
+
+[] > filteredi-test
+  assert-that > @
+    eq.
+      filteredi.
+        list
+          * 1 2 3
+        [v i]
+          v.lt 2 > @
+      list
+        * 1
+    $.equal-to TRUE

@@ -221,35 +221,35 @@
         a.write b
         b.write temp
 
-    [f] > filteredi
-      if. > @
-        eq.
-          0
-          length.
-            arr
+  [f] > filteredi /list
+    if. > @
+      eq.
+        0
+        length.
+          arr
       arr
       rec-filtered
         0
         f
         arr
-        *
+        list *
 
-      [index func carr new-list] > rec-filtered
-        (carr.at index) > item
-        seq > @
-          func > acc!
-            item
-            index
-          if.
-            eq.
-              acc
-              TRUE
-            new-list.with item
-          if.
-            ((index.plus 1).eq (carr.length))
+    [index func carr new-list] > rec-filtered
+      (carr.at index) > item
+      seq > @
+        func > acc!
+          item
+          index
+        if.
+          eq.
+            acc
+            TRUE
+          new-list.with item
+        if.
+          ((index.plus 1).eq (carr.length))
+          new-list
+          rec-filtered
+            (index.plus 1)
+            f
+            carr
             new-list
-            rec-filtered
-              (index.plus 1)
-              f
-              carr
-              new-list
