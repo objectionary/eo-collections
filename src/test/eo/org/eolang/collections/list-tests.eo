@@ -604,12 +604,25 @@
 
 [] > filteredi-test
   assert-that > @
-    eq.
-      filteredi.
-        list
-          * 1 2 3
-        [v i]
-          v.lt 2 > @
+    filteredi.
       list
         * 1
+      [v i]
+        v.lt 2 > @
+    list
+      * 1
     $.equal-to TRUE
+
+[] > filteredi-printing-test
+  seq > @
+    filteredi.
+      list
+        * 0 1
+      [v i]
+        seq > @
+          stdout
+            sprintf
+              "%d\n"
+              v
+          TRUE
+    TRUE

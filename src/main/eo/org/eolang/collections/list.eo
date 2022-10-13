@@ -221,13 +221,13 @@
         a.write b
         b.write temp
 
-  [f] > filteredi /list
+  [f] > filteredi
     if. > @
       eq.
         0
         length.
           arr
-      arr
+      list *
       rec-filtered
         0
         f
@@ -237,7 +237,7 @@
     [index func carr new-list] > rec-filtered
       (carr.at index) > item
       seq > @
-        func > acc!
+        func > acc
           item
           index
         if.
@@ -250,6 +250,6 @@
           new-list
           rec-filtered
             (index.plus 1)
-            f
+            func
             carr
             new-list
