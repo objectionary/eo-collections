@@ -220,3 +220,17 @@
         a > temp!
         a.write b
         b.write temp
+
+    [f] > filteredi
+      if. > @
+        eq.
+          0
+          length.
+            arr
+      arr
+      rec-filtered
+        0
+        f
+        arr
+
+      [index func carr] > rec-filtered
