@@ -228,6 +228,9 @@
   # for the index. The result of dataization
   # the "f" should be boolean, that is TRUE or FALSE.
 
+  # @todo #31:30min We need to implement "filtered"
+  # object too.
+
   [f] > filteredi
     if. > @
       eq.
