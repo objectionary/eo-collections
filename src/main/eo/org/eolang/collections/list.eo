@@ -221,6 +221,13 @@
         a.write b
         b.write temp
 
+  # Filter list with index with the function "f".
+  # Here "f" must be an abstract
+  # object with two attributes. The first
+  # one for the element, the second one
+  # for the index. The result of dataization
+  # the "f" should be boolean, that is TRUE or FALSE.
+
   [f] > filteredi
     if. > @
       eq.
@@ -229,27 +236,28 @@
           arr
       list *
       rec-filtered
-        0
+        (* 0 arr)
         f
-        arr
         list *
 
-    [index func carr new-list] > rec-filtered
+    [index-carr func new-list] > rec-filtered
+      (index-carr.at 0) > index
+      (index-carr.at 1) > carr
       (carr.at index) > item
       seq > @
-        func > acc
+        func > acc!
           item
           index
-        if.
+        if. > new-list-1
           eq.
             acc
             TRUE
           new-list.with item
+          new-list
         if.
           ((index.plus 1).eq (carr.length))
-          new-list
+          new-list-1
           rec-filtered
-            (index.plus 1)
+            (* (index.plus 1) carr)
             func
-            carr
-            new-list
+            new-list-1
