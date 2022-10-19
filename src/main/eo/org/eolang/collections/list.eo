@@ -229,7 +229,9 @@
   # the "f" should be boolean, that is TRUE or FALSE.
 
   # @todo #31:30min We need to implement "filtered"
-  # object too.
+  # object too. It should filter list with the function
+  # "f", without using index. So the function "f"
+  # should have only one attribute.
 
   [f] > filteredi
     if. > @
