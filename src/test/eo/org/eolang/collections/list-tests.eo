@@ -619,11 +619,14 @@
     eq.
       filteredi.
         list
-          * 7 3 8 4 2 1
+          * "Hello" "Name" "EO" "List"
         [v i]
-          v.gt 3 > @
+          gt. > @
+            length.
+              v
+            4
       list
-        * 7 8 4
+        * "Hello"
     $.equal-to TRUE
 
 [] > filteredi-test-3
@@ -645,9 +648,9 @@
         list
           * 3 1 4 2 5
         [v i]
-          i.gt 3 > @
+          i.gt 2 > @
       list
-        * 5
+        * 2 5
     $.equal-to TRUE
 
 [] > filteredi-test-5
@@ -655,11 +658,11 @@
     eq.
       filteredi.
         list
-          * 3 1 4 2 5
+          * TRUE FALSE TRUE
         [v i]
-          v.eq 0 > @
+          v.eq FALSE > @
       list
-        *
+        * FALSE
     $.equal-to TRUE
 
 # This code should prints "1 2"
@@ -672,10 +675,9 @@
         seq > @
           if.
             v.lt 3
-            []
-              stdout > @
-                sprintf
-                  "%d\n"
-                  v
+            stdout
+              sprintf
+                "%d\n"
+                v
             FALSE
     TRUE
