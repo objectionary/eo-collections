@@ -253,7 +253,7 @@
         func > acc!
           item
           index
-        if. > new-list-1
+        if. > filt-list
           eq.
             acc
             TRUE
@@ -261,8 +261,8 @@
           new-list
         if.
           ((index.plus 1).eq (carr.length))
-          new-list-1
+          filt-list
           rec-filtered
             (* (index.plus 1) carr)
             func
-            new-list-1
+            filt-list
