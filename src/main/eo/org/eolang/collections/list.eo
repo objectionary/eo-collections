@@ -267,7 +267,7 @@
   # object with one attribute. The first
   # one for the element. The result of dataization
   # the "f" should be boolean, that is TRUE or FALSE.
-  
+
   [f] > filtered
     ^.filteredi > @
       [item index]
