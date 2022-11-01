@@ -588,3 +588,96 @@
       lt. > @
         ^.at 0
         x.at 0
+
+# This code should prints "0 1"
+[] > reduced-printing-test
+  reduced. > @
+    list
+      * 0 1
+    TRUE
+    [a x]
+      seq > @
+        stdout
+          sprintf
+            "%d\n"
+            x
+
+[] > filteredi-test-1
+  assert-that > @
+    eq.
+      filteredi.
+        list
+          * 3 1 4 2 5
+        [v i]
+          v.lt 3 > @
+      list
+        * 1 2
+    $.equal-to TRUE
+
+[] > filteredi-test-2
+  assert-that > @
+    eq.
+      filteredi.
+        list
+          * "Hello" "Name" "EO" "List"
+        [v i]
+          gt. > @
+            length.
+              v
+            4
+      list
+        * "Hello"
+    $.equal-to TRUE
+
+[] > filteredi-test-3
+  assert-that > @
+    eq.
+      filteredi.
+        list
+          *
+        [v i]
+          v.lt 3 > @
+      list
+        *
+    $.equal-to TRUE
+
+[] > filteredi-test-4
+  assert-that > @
+    eq.
+      filteredi.
+        list
+          * 3 1 4 2 5
+        [v i]
+          i.gt 2 > @
+      list
+        * 2 5
+    $.equal-to TRUE
+
+[] > filteredi-test-5
+  assert-that > @
+    eq.
+      filteredi.
+        list
+          * TRUE FALSE TRUE
+        [v i]
+          v.eq FALSE > @
+      list
+        * FALSE
+    $.equal-to TRUE
+
+# This code should prints "1 2"
+[] > filteredi-printing-test
+  seq > @
+    filteredi.
+      list
+        * 1 2 3
+      [v i]
+        seq > @
+          if.
+            v.lt 3
+            stdout
+              sprintf
+                "%d\n"
+                v
+            FALSE
+    TRUE
