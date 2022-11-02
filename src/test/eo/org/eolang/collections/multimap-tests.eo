@@ -126,25 +126,29 @@
     ((((mp-res.found 1).at 0).found "c").at 0)
     $.equal-to "d"
 
-[] > multimap-without-works
+[] > multimap-without-works-3
   multimap * > init-mp!
-  (init-mp.with 1 "a").with 3 "c" > mp!
+  init-mp.with 3 "a" > mp!
   mp.without 3 > mp2!
   assert-that > @
-    * ((mp2.found 1).length) ((mp2.found 3).length)
-    $.equal-to
-      list
-        * 1 0
+    mp2.size
+    $.equal-to 0
+
+[] > multimap-without-works-4
+  multimap * > init-mp!
+  init-mp.with 3 "a" > mp!
+  mp.without 1 > mp2!
+  assert-that > @
+    mp2.size
+    $.equal-to 1
 
 [] > multimap-without-many-elements
   multimap * > init-mp!
   ((init-mp.with 1 "a").with 2 "b").with 1 "c" > mp!
   mp.without 1 > mp2!
   assert-that > @
-    * (mp.size) (mp2.size)
-    $.equal-to
-      list
-        * 3 1
+    mp2.size
+    $.equal-to 1
 
 [] > map-key-does-not-found
   (multimap *) > mp!
