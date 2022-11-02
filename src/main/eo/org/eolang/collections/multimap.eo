@@ -194,7 +194,7 @@
     ^.concat-all-arrays m > caa!
     ^.without-in-list key caa > arr!
     ^.pairs-to-hash arr > harr!
-    ^.rebuild harr arr > table!
+    ^.rebuilded harr arr > table!
     multimap table > mmp
     seq > @
       (mmp.elements-amount).write (arr.length)
