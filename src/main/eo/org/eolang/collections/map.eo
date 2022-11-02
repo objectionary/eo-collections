@@ -28,6 +28,10 @@
 +rt jvm org.eolang:eo-collections:0.0.0
 +version 0.0.0
 
+# @todo #15:30min Current implementation using rebuild.
+#  We should implement all methods only via using rebuilded method,
+#  because it was implemented on eo. May be we will need to disable some tests
+#  or simplify them
 [m] > map
 
   memory 0 > elements-amount
