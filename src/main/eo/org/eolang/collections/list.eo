@@ -220,3 +220,49 @@
         a > temp!
         a.write b
         b.write temp
+
+  # Filter list with index with the function "f".
+  # Here "f" must be an abstract
+  # object with two attributes. The first
+  # one for the element, the second one
+  # for the index. The result of dataization
+  # the "f" should be boolean, that is TRUE or FALSE.
+
+  # @todo #31:30min We need to implement "filtered"
+  #  object too. It should filter list with the function
+  #  "f", without using index. So the function "f"
+  #  should have only one attribute.
+
+  [f] > filteredi
+    if. > @
+      eq.
+        0
+        length.
+          arr
+      list *
+      rec-filtered
+        (* 0 arr)
+        f
+        list *
+
+    [index-carr func new-list] > rec-filtered
+      (index-carr.at 0) > index
+      (index-carr.at 1) > carr
+      (carr.at index) > item
+      seq > @
+        func > acc!
+          item
+          index
+        if. > filt-list
+          eq.
+            acc
+            TRUE
+          new-list.with item
+          new-list
+        if.
+          ((index.plus 1).eq (carr.length))
+          filt-list
+          rec-filtered
+            (* (index.plus 1) carr)
+            func
+            filt-list
