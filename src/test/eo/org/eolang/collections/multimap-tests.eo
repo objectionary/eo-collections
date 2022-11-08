@@ -119,7 +119,8 @@
 
 # @todo #15:30min This test was temporary disabled here.
 #  As we have problems with little size of stack, this test falls
-#  down because of huge count of operations inside them
+#  down because of huge count of operations inside them.
+#  Next, there are two more side puzzles.
 [] > multimap-find-and-with
   nop > @
     multimap * > init-mp!
@@ -153,6 +154,7 @@
 # @todo #15:30min This test was temporary disabled here.
 #  As we have problems with little size of stack, this test falls
 #  down because of huge count of operations inside them
+#  Next, there is one more side puzzle.
 [] > multimap-without-many-elements
   nop > @
     multimap * > init-mp!
