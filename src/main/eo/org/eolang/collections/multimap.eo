@@ -114,7 +114,7 @@
   # This method takes list of key-value pairs
   # and their hashes and returns hash table by them
   [harr arr] > rebuilded
-    mappedi. > wrapped-pairs!
+    mappedi. > comparable-pairs!
       list
         arr
       [x i]
@@ -125,7 +125,7 @@
         comparable-pair (* new-index x) > @
     sorted. > sorted-pairs!
       list
-        wrapped-pairs
+        comparable-pairs
     memory 0 > curr-hash
     reducedi. > almost-res!
       list
