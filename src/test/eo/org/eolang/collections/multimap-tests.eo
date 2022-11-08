@@ -28,9 +28,6 @@
 +package org.eolang.collections
 +version 0.0.0
 
-# @todo #15:30min A lot of tests was temporary disabled here.
-#  As we have problems with little size of stack, a lot of tests falls
-#  down because of huge count of operations inside them
 [] > rebuild-do-not-crush
   * 1 2 > harr
   * 3 4 > arr
@@ -120,7 +117,9 @@
       list
         * "c" 0 "a" "c"
 
-# This test has been temporarily disabled
+# @todo #15:30min This test was temporary disabled here.
+#  As we have problems with little size of stack, this test falls
+#  down because of huge count of operations inside them
 [] > multimap-find-and-with
   nop > @
     multimap * > init-mp!
@@ -151,7 +150,9 @@
     mp2.size
     $.equal-to 1
 
-# This test has been temporarily disabled
+# @todo #15:30min This test was temporary disabled here.
+#  As we have problems with little size of stack, this test falls
+#  down because of huge count of operations inside them
 [] > multimap-without-many-elements
   nop > @
     multimap * > init-mp!
@@ -174,7 +175,9 @@
     a.as-hash
     $.equal-to (b.as-hash)
 
-# This test has been temporarily disabled
+# @todo #15:30min This test was temporary disabled here.
+#  As we have problems with little size of stack, this test falls
+#  down because of huge count of operations inside them
 [] > multimap-keys-test
   nop > @
     ((multimap *).with 11 "a").with 5 "b" > mp!
