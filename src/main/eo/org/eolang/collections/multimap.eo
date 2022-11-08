@@ -111,6 +111,8 @@
           a
           a.with x
 
+  # This method takes list of key-value pairs
+  # and their hashes and returns hash table by them
   [harr arr] > rebuilded
     mappedi. > wrapped-pairs!
       list
