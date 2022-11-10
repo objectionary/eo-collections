@@ -647,12 +647,9 @@
       filteredi.
         list
           * 3 1 4
-          * 3 1 4
         [v i]
           i.gt 0 > @
-          i.gt 0 > @
       list
-        * 1 4
         * 1 4
     $.equal-to TRUE
 
