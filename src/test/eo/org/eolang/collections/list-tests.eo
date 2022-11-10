@@ -100,13 +100,13 @@
   assert-that > @
     reducedi.
       list
-        * 1 2 3 4
+        * 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1
       0
       [a i x]
         plus. > @
           x
           a
-    $.equal-to 10
+    $.equal-to 1
 
 [] > reducedi-bools-array
   assert-that > @
