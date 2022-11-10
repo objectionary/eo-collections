@@ -646,11 +646,11 @@
     eq.
       filteredi.
         list
-          * 3 1 4 2 5
+          * 3 1 4
         [v i]
-          i.gt 2 > @
+          i.gt 0 > @
       list
-        * 2 5
+        * 1 4
     $.equal-to TRUE
 
 [] > filteredi-test-5
