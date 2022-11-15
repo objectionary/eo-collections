@@ -117,15 +117,11 @@
       list
         * "c" 0 "a" "c"
 
-# @todo #15:30min This test was temporary disabled here.
-#  As we have problems with little size of stack, this test falls
-#  down because of huge count of operations inside them.
-#  Next, there are two more side puzzles.
 [] > multimap-find-and-with
   nop > @
     multimap * > init-mp!
     init-mp.with 1 2 > mp!
-    assert-that
+    assert-that > @
       ((mp.found 1).at 0)
       $.equal-to 2
 
@@ -151,18 +147,13 @@
     mp2.size
     $.equal-to 1
 
-# @todo #15:30min This test was temporary disabled here.
-#  As we have problems with little size of stack, this test falls
-#  down because of huge count of operations inside them
-#  Next, there is one more side puzzle.
 [] > multimap-without-many-elements
-  nop > @
-    multimap * > init-mp!
-    ((init-mp.with 1 "a").with 2 "b").with 1 "c" > mp!
-    mp.without 1 > mp2!
-    assert-that
-      mp2.size
-      $.equal-to 1
+  multimap * > init-mp!
+  ((init-mp.with 1 "a").with 2 "b").with 1 "c" > mp!
+  mp.without 1 > mp2!
+  assert-that > @
+    mp2.size
+    $.equal-to 1
 
 [] > map-key-does-not-found
   (multimap *) > mp!
@@ -177,17 +168,13 @@
     a.as-hash
     $.equal-to (b.as-hash)
 
-# @todo #15:30min This test was temporary disabled here.
-#  As we have problems with little size of stack, this test falls
-#  down because of huge count of operations inside them
 [] > multimap-keys-test
-  nop > @
-    ((multimap *).with 11 "a").with 5 "b" > mp!
-    assert-that
-      times.
-        ((mp.keys).at 0)
-        ((mp.keys).at 1)
-      $.equal-to 55
+  ((multimap *).with 11 "a").with 5 "b" > mp!
+  assert-that > @
+    times.
+      ((mp.keys).at 0)
+      ((mp.keys).at 1)
+    $.equal-to 55
 
 [] > comparable-pair-correctness
   multimap.rebuilded.comparable-pair (* 0 "") > p1!
