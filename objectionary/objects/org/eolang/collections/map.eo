@@ -25,9 +25,13 @@
 +alias org.eolang.math.number
 +home https://github.com/objectionary/eo-collections
 +package org.eolang.collections
-+rt jvm org.eolang:eo-collections:0.0.4
-+version 0.0.4
++rt jvm org.eolang:eo-collections:0.0.5
++version 0.0.5
 
+# @todo #15:30min Current implementation using rebuild.
+#  We should implement all methods only via using rebuilded method,
+#  because it was implemented on eo. May be we will need to disable some tests
+#  or simplify them. Also we should remove rebuild method in multimap file
 [m] > map
 
   memory 0 > elements-amount
