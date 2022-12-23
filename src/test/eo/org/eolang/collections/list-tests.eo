@@ -477,15 +477,14 @@
     $.equal-to 0
 
 [] > list-sorted
-  nop > @
-    sorted. > res!
+  sorted. > res!
+    list
+      * 4 6 3 5
+  assert-that > @
+    res
+    $.equal-to
       list
-        * 4 6 3 5
-    assert-that
-      res
-      $.equal-to
-        list
-          * 3 4 5 6
+        * 3 4 5 6
 
 [] > list-sorted-2
   nop > @
