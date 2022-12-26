@@ -133,6 +133,7 @@ SOFTWARE.
               <keepBinaries>
                 <glob>EOorg/EOeolang/EOcollections/**</glob>
               </keepBinaries>
+              <failOnWarning>true</failOnWarning>
             </configuration>
           </execution>
           <execution>
