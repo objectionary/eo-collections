@@ -731,3 +731,16 @@
                 v
             FALSE
     TRUE
+
+[] > list-inflated-zero-steps
+  inflated. > res!
+    list
+      *
+    [a i]
+      if. > @
+        i.gt -1
+        *
+        * i
+  assert-that > @
+    res.length
+    $.equal-to 0
