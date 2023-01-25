@@ -269,4 +269,4 @@
         &.f > @
           item
 
-  [f] > inflated /array
+  [f] > inflated /list
