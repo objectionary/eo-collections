@@ -259,7 +259,7 @@
 
   # Filter list without index with the function "f".
   # Here "f" must be an abstract object
-  # with one attribute for the element. 
+  # with one attribute for the element.
   # The result of dataization the "f"
   # should be boolean, that is TRUE or FALSE.
 
@@ -268,3 +268,5 @@
       [item index]
         &.f > @
           item
+
+  [f] > inflated /array
