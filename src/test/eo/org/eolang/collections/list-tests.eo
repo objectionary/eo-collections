@@ -690,3 +690,44 @@
                 v
             FALSE
     TRUE
+
+[] > filtered-test-1
+  assert-that > @
+    eq.
+      filtered.
+        list
+          * 3 1 4 2 5
+        [v]
+          v.gt 2 > @
+      list
+        * 3 4 5
+    $.equal-to TRUE
+
+[] > filtered-test-2
+  assert-that > @
+    eq.
+      filtered.
+        list
+          * TRUE FALSE TRUE
+        [v]
+          v.eq FALSE > @
+      list
+        * FALSE
+    $.equal-to TRUE
+
+# This code should prints "1 2"
+[] > filtered-printing-test
+  seq > @
+    filtered.
+      list
+        * 1 2 3
+      [v]
+        seq > @
+          if.
+            v.lt 3
+            stdout
+              sprintf
+                "%d\n"
+                v
+            FALSE
+    TRUE

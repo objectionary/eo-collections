@@ -27,7 +27,7 @@ SOFTWARE.
   <parent>
     <groupId>com.jcabi</groupId>
     <artifactId>parent</artifactId>
-    <version>0.64.1</version>
+    <version>0.65.0</version>
   </parent>
   <groupId>org.eolang</groupId>
   <artifactId>eo-collections</artifactId>
@@ -82,18 +82,18 @@ SOFTWARE.
     <dependency>
       <groupId>org.eolang</groupId>
       <artifactId>eo-runtime</artifactId>
-      <version>0.28.14</version>
+      <version>0.28.17</version>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-api</artifactId>
-      <version>5.9.1</version>
+      <version>5.9.2</version>
       <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.junit.jupiter</groupId>
       <artifactId>junit-jupiter-params</artifactId>
-      <version>5.9.1</version>
+      <version>5.9.2</version>
       <scope>test</scope>
     </dependency>
   </dependencies>
@@ -117,7 +117,7 @@ SOFTWARE.
       <plugin>
         <groupId>org.eolang</groupId>
         <artifactId>eo-maven-plugin</artifactId>
-        <version>0.28.14</version>
+        <version>0.28.17</version>
         <executions>
           <execution>
             <id>compile</id>
@@ -133,6 +133,7 @@ SOFTWARE.
               <keepBinaries>
                 <glob>EOorg/EOeolang/EOcollections/**</glob>
               </keepBinaries>
+              <failOnWarning>true</failOnWarning>
             </configuration>
           </execution>
           <execution>
