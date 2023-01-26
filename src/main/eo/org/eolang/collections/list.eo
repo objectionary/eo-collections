@@ -272,4 +272,4 @@
   # @todo #94:30min Implement this method. We can firsly implement it in java
   #  to check correctness of all tests. That we should implement it on eolang.
   #  After finishing we should unwrap all nops from disabled tests for current method.
-  [f] > inflated
+  [f] > inflated /array
