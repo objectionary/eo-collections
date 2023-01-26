@@ -27,9 +27,14 @@
  */
 package EOorg.EOeolang.EOcollections;
 
-import org.eolang.*;
+import org.eolang.AtComposite;
+import org.eolang.AtFree;
+import org.eolang.Data;
+import org.eolang.Dataized;
+import org.eolang.PhDefault;
+import org.eolang.Param;
+import org.eolang.Phi;
 
-import java.util.Arrays;
 
 /**
  * List inflating.
@@ -55,16 +60,14 @@ public class EOlist$EOinflated extends PhDefault {
                 final Phi function = rho.attr("f").get().copy();
                 function.attr(0).put(new Data.ToPhi(array));
                 function.attr(1).put(new Data.ToPhi((long) idx));
-
-                Phi[] additionArray = new Dataized(function).take(Phi[].class);
-                if (additionArray.length == 0) {
+                final Phi[] addition = new Dataized(function).take(Phi[].class);
+                if (addition.length == 0) {
                     break;
                 }
-
-                Phi[] concatenation = new Phi[array.length + additionArray.length];
-                System.arraycopy(array, 0, concatenation, 0, array.length);
-                System.arraycopy(additionArray, 0, concatenation, array.length, additionArray.length);
-                array = concatenation;
+                final Phi[] concat = new Phi[array.length + addition.length];
+                System.arraycopy(array, 0, concat, 0, array.length);
+                System.arraycopy(addition, 0, concat, array.length, addition.length);
+                array = concat;
             }
             return new Data.ToPhi(array);
         }));
