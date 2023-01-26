@@ -752,7 +752,7 @@
       *
     [a i]
       if. > @
-        i.gt 5
+        i.gt 4
         *
         * i
   assert-that > @
