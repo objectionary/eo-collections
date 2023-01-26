@@ -31,10 +31,9 @@ import org.eolang.AtComposite;
 import org.eolang.AtFree;
 import org.eolang.Data;
 import org.eolang.Dataized;
-import org.eolang.PhDefault;
 import org.eolang.Param;
+import org.eolang.PhDefault;
 import org.eolang.Phi;
-
 
 /**
  * List inflating.
@@ -54,23 +53,29 @@ public class EOlist$EOinflated extends PhDefault {
     public EOlist$EOinflated(final Phi sigma) {
         super(sigma);
         this.add("f", new AtFree());
-        this.add("φ", new AtComposite(this, rho -> {
-            Phi[] array = new Param(rho).strong(Phi[].class);
-            for (int idx = 0; ; ++idx) {
-                final Phi function = rho.attr("f").get().copy();
-                function.attr(0).put(new Data.ToPhi(array));
-                function.attr(1).put(new Data.ToPhi((long) idx));
-                final Phi[] addition = new Dataized(function).take(Phi[].class);
-                if (addition.length == 0) {
-                    break;
+        this.add(
+            "φ",
+            new AtComposite(
+                this,
+                rho -> {
+                    Phi[] array = new Param(rho).strong(Phi[].class);
+                    for (int idx = 0; ; ++idx) {
+                        final Phi function = rho.attr("f").get().copy();
+                        function.attr(0).put(new Data.ToPhi(array));
+                        function.attr(1).put(new Data.ToPhi((long) idx));
+                        final Phi[] addition = new Dataized(function).take(Phi[].class);
+                        if (addition.length == 0) {
+                            break;
+                        }
+                        final Phi[] concat = new Phi[array.length + addition.length];
+                        System.arraycopy(array, 0, concat, 0, array.length);
+                        System.arraycopy(addition, 0, concat, array.length, addition.length);
+                        array = concat;
+                    }
+                    return new Data.ToPhi(array);
                 }
-                final Phi[] concat = new Phi[array.length + addition.length];
-                System.arraycopy(array, 0, concat, 0, array.length);
-                System.arraycopy(addition, 0, concat, array.length, addition.length);
-                array = concat;
-            }
-            return new Data.ToPhi(array);
-        }));
+            )
+        );
     }
 
 }
