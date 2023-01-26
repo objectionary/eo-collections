@@ -269,4 +269,7 @@
         &.f > @
           item
 
+  # @todo #99:30min We have to implement this method via eo.
+  #  After finishing we should check speed of tests passing for
+  #  tests for current method, and maybe simplify some of them.
   [f] > inflated /array
