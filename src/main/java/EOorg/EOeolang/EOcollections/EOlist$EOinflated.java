@@ -56,6 +56,8 @@ public class EOlist$EOinflated extends PhDefault {
                 function.attr(0).put(new Data.ToPhi(array));
                 function.attr(1).put(new Data.ToPhi((long) idx));
 
+                System.out.println(idx);
+
                 Phi[] additionArray = new Dataized(function).take(Phi[].class);
 
                 if (additionArray.length == 0) {
@@ -66,8 +68,6 @@ public class EOlist$EOinflated extends PhDefault {
                 System.arraycopy(array, 0, concatenation, 0, array.length);
                 System.arraycopy(additionArray, 0, concatenation, array.length, additionArray.length);
                 array = concatenation;
-
-                ++idx;
             }
             return new Data.ToPhi(array);
         }));
