@@ -742,10 +742,9 @@
         i.gt -1
         *
         * i
-  nop > @
-    assert-that
-      res.length
-      $.equal-to 0
+  assert-that > @
+    res.length
+    $.equal-to 0
 
 [] > list-inflated-1
   inflated. > res!
@@ -756,10 +755,9 @@
         i.gt 5
         *
         * i
-  nop > @
-    assert-that
-      res.length
-      $.equal-to 5
+  assert-that > @
+    res.length
+    $.equal-to 5
 
 [] > list-inflated-2
   inflated. > res!
@@ -772,10 +770,9 @@
           1
         *
         * i
-  nop > @
-    assert-that
-      res.length
-      $.equal-to 1
+  assert-that > @
+    res.length
+    $.equal-to 1
 
 [] > list-inflated-3
   inflated. > res!
@@ -788,10 +785,9 @@
           1
         * i
         *
-  nop > @
-    assert-that
-      res.length
-      $.equal-to 0
+  assert-that > @
+    res.length
+    $.equal-to 0
 
 [] > list-inflated-4
   inflated. > res!
@@ -804,10 +800,9 @@
           2
         *
         * i
-  nop > @
-    assert-that
-      res.length
-      $.equal-to 2
+  assert-that > @
+    res.length
+    $.equal-to 2
 
 [] > list-inflated-5
   inflated. > res!
