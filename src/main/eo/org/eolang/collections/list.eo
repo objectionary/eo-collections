@@ -273,3 +273,24 @@
   #  As we have in other methods the result should be wrapped in a list.
   #  Also we have to add methods to check return type.
   [f] > inflated
+    rec-inflated > @
+      arr
+      0
+      f
+
+    [a i func] > rec-inflated
+      func > result!
+        a
+        i
+      if. > @
+        eq.
+          length.
+            result
+          0
+        a
+        rec-inflated
+          result
+          plus.
+            i
+            1
+          func
