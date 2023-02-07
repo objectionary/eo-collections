@@ -269,9 +269,6 @@
         &.f > @
           item
 
-  # @todo #99:30min We have to implement this method via eo.
-  #  After finishing we should check speed of tests passing for
-  #  tests for current method, and maybe simplify some of them.
   # @todo #99:30min This method must return list type.
   #  As we have in other methods the result should be wrapped in a list.
   #  Also we have to add methods to check return type.
