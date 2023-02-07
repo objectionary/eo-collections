@@ -290,7 +290,8 @@
         a
         rec-inflated
           concat.
-            a
+            list
+              a
             result
           plus.
             i
