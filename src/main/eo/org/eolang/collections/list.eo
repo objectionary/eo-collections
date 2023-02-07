@@ -275,4 +275,4 @@
   # @todo #99:30min This method must return list type.
   #  As we have in other methods the result should be wrapped in a list.
   #  Also we have to add methods to check return type.
-  [f] > inflated /array
+  [f] > inflated
