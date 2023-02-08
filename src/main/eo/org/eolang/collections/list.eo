@@ -285,7 +285,8 @@
         i
       if. > @
         is-empty.
-          a
+          list
+            result
         a
         rec-inflated
           list
