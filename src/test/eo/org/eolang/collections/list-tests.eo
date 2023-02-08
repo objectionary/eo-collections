@@ -815,9 +815,24 @@
           5
         *
         * i i
-  nop > @
-    assert-that
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 2 0 0 1 1
+
+[] > inflated-returns-list
+  inflated. > res!
+    list
+      * 2
+    [a i]
+      if. > @
+        eq.
+          a.length
+          5
+        *
+        * i i
+  assert-that > @
+    is-empty.
       res
-      $.equal-to
-        list
-          * 2 0 0 1 1
+    $.equal-to FALSE
