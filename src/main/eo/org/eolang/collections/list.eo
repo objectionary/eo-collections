@@ -149,7 +149,10 @@
               x.at idx
       FALSE
 
-  # Returns the combined current and passed arrays
+  # @todo #103:30min list.concat have to return list object instead of array.
+  #  When we call a concat method on an list object, we want to get list as a result,
+  #  as other list methods.
+  #  Also we should add some tests to check object type.
   [passed] > concat
     reduced. > @!
       list
