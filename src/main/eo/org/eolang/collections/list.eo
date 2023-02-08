@@ -271,7 +271,8 @@
 
   [f] > inflated
     rec-inflated > @
-      arr
+      list
+        arr
       0
       f
 
@@ -280,16 +281,15 @@
         a
         i
       if. > @
-        eq.
-          length.
-            result
-          0
+        is-empty.
+          a
         a
         rec-inflated
-          concat.
-            list
-              a
-            result
+          list
+            concat.
+              list
+                a
+              result
           plus.
             i
             1
