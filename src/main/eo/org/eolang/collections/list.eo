@@ -149,7 +149,10 @@
               x.at idx
       FALSE
 
-  # Returns the combined current and passed arrays
+  # @todo #103:30min list.concat have to return list object instead of array.
+  #  When we call a concat method on an list object, we want to get list as a result,
+  #  as other list methods.
+  #  Also we should add some tests to check object type.
   [passed] > concat
     reduced. > @!
       list
@@ -269,12 +272,10 @@
         &.f > @
           item
 
-  # @todo #99:30min This method must return list type.
-  #  As we have in other methods the result should be wrapped in a list.
-  #  Also we have to add methods to check return type.
   [f] > inflated
     rec-inflated > @
-      arr
+      list
+        arr
       0
       f
 
@@ -283,16 +284,16 @@
         a
         i
       if. > @
-        eq.
-          length.
+        is-empty.
+          list
             result
-          0
         a
         rec-inflated
-          concat.
-            list
-              a
-            result
+          list
+            concat.
+              list
+                a
+              result
           plus.
             i
             1
