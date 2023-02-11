@@ -388,39 +388,39 @@
       (res.at 0).write 7
       res.at 0
 
-[] > is-found-1
+[] > is-index-of-1
   list > lst
     * 1 2 3
   assert-that > @
-    lst.found 2
+    lst.index-of 2
     $.equal-to 1
 
-[] > is-found-2
+[] > is-index-of-2
   list > lst
     * "qwerty" 2 3
   assert-that > @
-    lst.found 2
+    lst.index-of 2
     $.equal-to 1
 
-[] > is-found-3
+[] > is-index-of-3
   list > lst
     * -1 2 -1
   assert-that > @
-    lst.found -1
+    lst.index-of -1
     $.equal-to 0
 
-[] > is-not-found
+[] > is-not-index-of
   list > lst
     * "qwerty" 2 3
   assert-that > @
-    lst.found 7
+    lst.index-of 7
     $.equal-to -1
 
-[] > is-found-first-index
+[] > is-index-of-first-index
   list > lst
     * "qwerty" "asdfgh" 3 "qwerty"
   assert-that > @
-    lst.found "qwerty"
+    lst.index-of "qwerty"
     $.equal-to 0
 
 [] > list-with-without

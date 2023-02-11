@@ -162,8 +162,8 @@
         a.with x > @
 
   # Returns index of the first particular item in list.
-  # If the list has no this item, found returns -1
-  [wanted] > found
+  # If the list has no this item, index-of returns -1
+  [wanted] > index-of
     ^.reducedi > @
       -1
       [acc i item]
