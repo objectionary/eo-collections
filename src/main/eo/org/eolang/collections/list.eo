@@ -321,6 +321,6 @@
           list *
           [acc idx item]
             if. > @
-              idx.eq index
+              idx.gte index
               acc
               acc.with item

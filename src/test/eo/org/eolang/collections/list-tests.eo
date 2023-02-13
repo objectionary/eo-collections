@@ -846,7 +846,7 @@
   assert-that > @
     head.
       list
-        * 1 2
+        * 1 2 3 4 5
       1
     $.equal-to
       list
@@ -875,7 +875,7 @@
   assert-that > @
     head.
       list
-        * "foo" 2.2 00-01
+        * "foo" 2.2 00-01 "bar"
       2
     $.equal-to
       list
