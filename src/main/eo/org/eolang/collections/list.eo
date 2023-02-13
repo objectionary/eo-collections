@@ -308,12 +308,15 @@
     minus. > start!
       arr.length
       i
-    ^.reducedi > @
-      list *
-      [acc idx item]
-        if. > @
-          gte.
-            idx
-            start
-          acc.with item
-          acc
+    if. > @
+      start.lt 0
+      ^
+      ^.reducedi
+        list *
+        [acc idx item]
+          if. > @
+            gte.
+              idx
+              start
+            acc.with item
+            acc
