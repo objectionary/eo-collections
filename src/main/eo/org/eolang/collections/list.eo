@@ -301,3 +301,15 @@
             i
             1
           func
+
+  # Get the first i-th elements from
+  # the start of the list
+  [i] > head
+    i > index!
+    ^.reducedi > @
+      list *
+      [acc idx item]
+        if. > @
+          idx.eq index
+          acc
+          acc.with item
