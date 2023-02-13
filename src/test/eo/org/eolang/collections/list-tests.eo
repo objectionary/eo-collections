@@ -870,3 +870,13 @@
     $.equal-to
       list
         * 1 2 3
+
+[] > complex-head
+  assert-that > @
+    head.
+      list
+        * "foo" 2.2 00-01
+      2
+    $.equal-to
+      list
+        * "foo" 2.2

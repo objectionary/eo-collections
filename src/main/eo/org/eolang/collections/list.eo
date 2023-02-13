@@ -304,11 +304,15 @@
 
   # Get the first i-th elements from
   # the start of the list
+  # @todo #112:30min Make list.head understand negative index.
+  #  Right now we can use negative index and the result would be
+  #  an empty list. It would be better to make this index
+  #  as index from the end of the list.
   [i] > head
     i > index!
 
     if. > @
-      index.eq 0
+      index.lte 0
       list *
       if.
         index.gte (^.length)
