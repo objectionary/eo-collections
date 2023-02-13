@@ -841,3 +841,13 @@
     is-empty.
       res
     $.equal-to FALSE
+
+[] > simple-tail
+  assert-that > @
+    tail.
+      list
+        * 1 2 3 4 5
+      2
+    $.equal-to
+      list
+        * 4 5

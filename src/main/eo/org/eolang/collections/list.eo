@@ -301,3 +301,19 @@
             i
             1
           func
+
+  # Get the last i-th elements from
+  # the end of the list
+  [i] > tail
+    minus. > start!
+      arr.length
+      i
+    ^.reducedi > @
+      list *
+      [acc idx item]
+        if. > @
+          gte.
+            idx
+            start
+          acc.with item
+          acc
