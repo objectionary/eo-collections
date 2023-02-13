@@ -33,7 +33,7 @@
 [start end func] > range
   [acc cur last f] > append
     if. > @
-      cur.lte last
+      cur.lt last
       []
         append > @
           acc.with cur
@@ -43,7 +43,7 @@
       acc
 
   if. > @
-    start.lte end
+    start.lt end
     append
       * start
       func start
