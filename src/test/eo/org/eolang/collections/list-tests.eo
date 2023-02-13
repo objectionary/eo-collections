@@ -851,3 +851,22 @@
     $.equal-to
       list
         * 1
+
+[] > list-head-with-zero-index
+  assert-that > @
+    head.
+      list
+        * 1 2 3
+      0
+    $.equal-to
+      list *
+
+[] > list-head-with-length-index
+  assert-that > @
+    head.
+      list
+        * 1 2 3
+      3
+    $.equal-to
+      list
+        * 1 2 3

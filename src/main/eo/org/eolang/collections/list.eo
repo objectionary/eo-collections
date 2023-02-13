@@ -306,10 +306,17 @@
   # the start of the list
   [i] > head
     i > index!
-    ^.reducedi > @
+
+    if. > @
+      index.eq 0
       list *
-      [acc idx item]
-        if. > @
-          idx.eq index
-          acc
-          acc.with item
+      if.
+        index.gte (^.length)
+        ^
+        ^.reducedi
+          list *
+          [acc idx item]
+            if. > @
+              idx.eq index
+              acc
+              acc.with item
