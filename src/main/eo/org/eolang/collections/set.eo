@@ -27,6 +27,10 @@
 +rt jvm org.eolang:eo-collections:0.0.0
 +version 0.0.0
 
+# @todo #120:30min Optimize set. Current implementation of set is quite heavy
+#  and takes a lot of memory. Set should be refactored so he "rebuild" itself
+#  only once and when every new element is added he just checks if such
+#  element exists and adds it
 [lst] > set
   if. > @!
     lst.is-empty
@@ -36,10 +40,9 @@
         at.
           reducedi.
             lst
-            list
-              *
-                map *
-                list *
+            *
+              map *
+              list *
             [acc index item]
               acc.at 0 > mp!
               if. > @
@@ -49,10 +52,9 @@
                       mp.found item
                     0
                 acc
-                list
-                  *
-                    mp.with item 1
-                    (acc.at 1).with index
+                *
+                  mp.with item 1
+                  (acc.at 1).with index
           1
         list *
         [acc index]
