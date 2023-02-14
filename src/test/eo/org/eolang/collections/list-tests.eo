@@ -880,3 +880,31 @@
     $.equal-to
       list
         * "foo" 2.2
+[] > simple-tail
+  assert-that > @
+    tail.
+      list
+        * 1 2 3 4 5
+      2
+    $.equal-to
+      list
+        * 4 5
+
+[] > zero-index-in-tail
+  assert-that > @
+    tail.
+      list
+        * 1 2 3 4 5
+      0
+    $.equal-to
+      list *
+
+[] > large-index-in-tail
+  assert-that > @
+    tail.
+      list
+        * 1 2 3 4 5
+      10
+    $.equal-to
+      list
+        * 1 2 3 4 5
