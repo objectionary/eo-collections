@@ -178,6 +178,14 @@
           i
           acc.plus 0
 
+  # TRUE if the list contain x. Otherwise, "false".
+  [x] > contains
+    not. > @
+      eq.
+        -1
+        ^.index-of
+          x
+
   # Returns a new list sorted via lt method
   [] > sorted
     reducedi. > res!
