@@ -188,13 +188,13 @@
     memory 0 > i
     memory 0 > j
     while. > sorting-process!
-      i.lt (res.length)
+      (i.plus 1).lt (res.length)
       [iter-i]
         seq > @
           j.write 0
           i.write (i.plus 1)
           while.
-            (j.plus 1).lt (res.length)
+            (j.plus 2).lt (res.length)
             [iter-j]
               seq > @
                 if.

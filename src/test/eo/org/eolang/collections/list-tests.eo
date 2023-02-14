@@ -482,48 +482,59 @@
     $.equal-to 0
 
 [] > list-sorted
-  nop > @
-    sorted. > res!
+  sorted. > res!
+    list
+      * 4 6 3 5
+  assert-that > @
+    res
+    $.equal-to
       list
-        * 4 6 3 5
-    assert-that
-      res
-      $.equal-to
-        list
-          * 3 4 5 6
+        * 3 4 5 6
 
 [] > list-sorted-2
-  nop > @
-    sorted. > res!
+  sorted. > res!
+    list
+      * 5 3 6
+  assert-that > @
+    res
+    $.equal-to
       list
-        * 5 3 6 4
-    assert-that
-      res
-      $.equal-to
-        list
-          * 3 4 5 6
+        * 3 5 6
 
 [] > reversed-list-sorted
+  sorted. > res!
+    list
+      * 3 2 1
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 1 2 3
+
+# @todo #85:30min Fix sorting with list with 0. For some reason
+#  `(list * 3 2 0).sorted` fails with "Can't #at(3) the 4th element of the
+#  array, there are just 3 of them". Check also
+#  complex-objects-list-sorted-with-zero test
+[] > reversed-list-sorted-with-zero
   nop > @
     sorted. > res!
       list
-        * 2 1 0
+        * 3 2 0
     assert-that
       res
       $.equal-to
         list
-          * 0 1 2
+          * 0 2 3
 
 [] > similar-elements-list-sorted
-  nop > @
-    sorted. > res!
+  sorted. > res!
+    list
+      * 1 1 1
+  assert-that > @
+    res
+    $.equal-to
       list
         * 1 1 1
-    assert-that
-      res
-      $.equal-to
-        list
-          * 1 1 1
 
 [] > one-element-list-sorted
   sorted. > res!
@@ -546,15 +557,14 @@
         *
 
 [] > negative-numbers-list-sorted
-  nop > @
-    sorted. > res!
+  sorted. > res!
+    list
+      * 1 2 -3 -4
+  assert-that > @
+    res
+    $.equal-to
       list
-        * 1 2 -3 -4
-    assert-that
-      res
-      $.equal-to
-        list
-          * -4 -3 1 2
+        * -4 -3 1 2
 
 [] > complex-objects-list-compairing
   list > res!
@@ -580,6 +590,30 @@
         x.at 0
 
 [] > complex-objects-list-sorted
+  sorted. > res!
+    list
+      *
+        comparable-pair (* 7 3)
+        comparable-pair (* 1 1)
+        comparable-pair (* 4 0)
+  assert-that > @
+    res
+    $.equal-to
+      list
+        *
+          list (* 1 1)
+          list (* 4 0)
+          list (* 7 3)
+
+  [pair] > comparable-pair
+    pair > @
+
+    [x] > lt
+      lt. > @
+        ^.at 0
+        x.at 0
+
+[] > complex-objects-list-sorted-with-zero
   nop > @
     sorted. > res!
       list
