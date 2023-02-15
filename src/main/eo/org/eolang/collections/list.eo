@@ -124,7 +124,7 @@
       TRUE
 
   # Create a new list without the i-th element
-  [i] > without
+  [i] > withouti
     ^.reducedi > @
       *
       [a idx item]

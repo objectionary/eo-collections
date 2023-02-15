@@ -233,9 +233,9 @@
   .each > @
     [i] (stdout i > @)
 
-[] > list-without
+[] > list-withouti
   assert-that > @
-    without.
+    withouti.
       list
         * 1 2 3
       1
@@ -243,10 +243,10 @@
       list
         * 1 3
 
-[] > list-without-complex-case
+[] > list-withouti-complex-case
   [a] > foo
     seq > @
-      without. > t
+      withouti. > t
         list a
         0
       t
@@ -257,10 +257,10 @@
       list
         * "text" "f"
 
-[] > list-without-nested-array
+[] > list-withouti-nested-array
   * 3 2 1 > nested
   assert-that > @
-    without.
+    withouti.
       list
         * "smthg" 27 nested
       2
@@ -451,9 +451,9 @@
     lst.contains "Привет"
     $.equal-to FALSE
 
-[] > list-with-without
+[] > list-with-withouti
   list (* 1 2) > list1
-  without. > list2
+  withouti. > list2
     with.
       list1
       3
@@ -465,7 +465,7 @@
 [] > concat-returns-list
   list (* 0 1) > list1
   list (* 2 3) > list2
-  without. > list3
+  withouti. > list3
     concat.
       list1
       list2
