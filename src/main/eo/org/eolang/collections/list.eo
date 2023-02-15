@@ -133,6 +133,16 @@
           a
           a.with item
 
+  [x] > without
+    list > @
+      ^.reduced
+        *
+        [acc item]
+          if. > @
+            x.eq item
+            acc
+            acc.with item
+
   # Equal to another object?
   [x] > eq
     if. > @
