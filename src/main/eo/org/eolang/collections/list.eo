@@ -185,13 +185,9 @@
       -1
       [acc i item]
         if. > @
-          and.
-            gt.
-              i
-              acc
-            eq.
-              item
-              wanted
+          eq.
+            item
+            wanted
           i
           acc.plus 0
 
