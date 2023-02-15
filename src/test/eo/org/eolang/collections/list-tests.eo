@@ -423,6 +423,34 @@
     lst.index-of "qwerty"
     $.equal-to 0
 
+[] > contains-1
+  list > lst
+    * "qwerty" "asdfgh" 3 "qwerty"
+  assert-that > @
+    lst.contains "qwerty"
+    $.equal-to TRUE
+
+[] > contains-2
+  list > lst
+    * "qwerty" "asdfgh" 3 "qwerty"
+  assert-that > @
+    lst.contains 3
+    $.equal-to TRUE
+
+[] > contains-3
+  list > lst
+    * "Привет" "asdfgh" 3 "qwerty"
+  assert-that > @
+    lst.contains "Привет"
+    $.equal-to TRUE
+
+[] > contains-4
+  list > lst
+    * "qwerty" "asdfgh" 3 "qwerty"
+  assert-that > @
+    lst.contains "Привет"
+    $.equal-to FALSE
+
 [] > list-with-without
   list (* 1 2) > list1
   without. > list2
