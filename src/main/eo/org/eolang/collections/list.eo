@@ -362,16 +362,16 @@
 
   # TRUE if the current list is lexicographically
   # greater than the passed list. Otherwise, FALSE.
-  [other] > gt /bool
+  [other] > gt
 
   # TRUE if the current list is lexicographically
   # greater than or equal to the passed list. Otherwise, FALSE.
-  [other] > gte /bool
+  [other] > gte
 
   # TRUE if the current list is lexicographically
   # less than the passed list. Otherwise, FALSE.
-  [other] > lt /bool
+  [other] > lt
 
   # TRUE if the current list is lexicographically
   # less than or equal to the passed list. Otherwise, FALSE.
-  [other] > lte /bool
+  [other] > lte
