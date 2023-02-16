@@ -28,7 +28,6 @@
 +version 0.0.0
 
 [m] > multimap
-
   memory 0 > elements-amount
 
   # Returns list of all keys in multimap
