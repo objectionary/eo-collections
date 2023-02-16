@@ -70,6 +70,33 @@
       list
         * 1 6
 
+[] > range-with-complex-items
+  [pair] > comparable-pair
+    pair > @!
+    [x] > lt
+      lt. > @
+        ^.at 0
+        x.at 0
+    comparable-pair > next
+      *
+        (@.at 0).plus 1
+        (@.at 1).plus 1
+
+  range > rng!
+    comparable-pair
+      * 1 2
+    * 5
+
+  assert-that > @
+    list rng
+    $.equal-to
+      list
+        *
+          list (* 1 2)
+          list (* 2 3)
+          list (* 3 4)
+          list (* 4 5)
+
 [] > range-with-wrong-items-is-an-empty-array
   range > rng!
     []
