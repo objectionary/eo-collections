@@ -351,3 +351,11 @@
               start
             acc.with item
             acc
+
+  [other] > gt /bool
+
+  [other] > gte /bool
+
+  [other] > lt /bool
+
+  [other] > lte /bool
