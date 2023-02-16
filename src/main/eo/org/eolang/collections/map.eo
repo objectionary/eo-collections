@@ -45,6 +45,18 @@
       [curr]
         curr.at 0 > @
 
+  [key] > contains-key
+    reduced. > @
+      keys.
+        ^
+      FALSE
+      [a x]
+        or. > @
+          a
+          eq.
+            x
+            key
+
   # Returns amount of elements in multimap
   [] > size
     elements-amount > @
