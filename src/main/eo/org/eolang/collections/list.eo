@@ -352,6 +352,10 @@
             acc.with item
             acc
 
+  # @todo #111:30min We need implement list comparison methods.
+  #  Below we have 4 methods for comparing lists: gt, gte, lt, lte.
+  #  We should implement them on eo and unwrap tests with them.
+
   # TRUE if the current list is lexicographically
   # greater than the passed list. Otherwise, FALSE.
   [other] > gt /bool
