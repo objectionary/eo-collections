@@ -999,3 +999,203 @@
     $.equal-to
       list
         * 1 2 3 4 5
+
+[] > list-gt-1
+  nop > @
+    assert-that
+      qt.
+        list
+          * 3 2 1
+        list
+          * 2 1 0
+      $.equal-to TRUE
+
+[] > list-gt-2
+  nop > @
+    assert-that
+      gt.
+        list
+          * 3 2 1
+        list
+          * 2 10 100
+      $.equal-to TRUE
+
+[] > list-gt-3
+  nop > @
+    assert-that
+      gt.
+        list
+          * 1 2 3
+        list
+          * 1 2 3
+      $.equal-to FALSE
+
+[] > list-gt-4
+  nop > @
+    assert-that
+      gt.
+        list
+          * 3 4 2
+        list
+          * 3 4
+      $.equal-to TRUE
+
+[] > list-gt-5
+  nop > @
+    assert-that
+      gt.
+        list
+          * 0 99 99
+        list
+          * 1 0
+      $.equal-to FALSE
+
+[] > list-gte-1
+  nop > @
+    assert-that
+      gte.
+        list
+          * 1 2 3
+        list
+          * 1 2 3
+      $.equal-to TRUE
+
+[] > list-gte-2
+  nop > @
+    assert-that
+      gte.
+        list
+          * 3 4 2
+        list
+          * 3 4
+      $.equal-to TRUE
+
+[] > list-gte-3
+  nop > @
+    assert-that
+      gte.
+        list
+          * 0 99 99
+        list
+          * 1 0
+      $.equal-to FALSE
+
+[] > list-lt-1
+  nop > @
+    assert-that
+      lt.
+        list
+          * 3 2 1
+        list
+          * 2 1 0
+      $.equal-to FALSE
+
+[] > list-lt-2
+  nop > @
+    assert-that
+      lt.
+        list
+          * 3 2 1
+        list
+          * 2 10 100
+      $.equal-to FALSE
+
+[] > list-lt-3
+  nop > @
+    assert-that
+      lt.
+        list
+          * 1 2 3
+        list
+          * 1 2 3
+      $.equal-to FALSE
+
+[] > list-lt-4
+  nop > @
+    assert-that
+      lt.
+        list
+          * 3 4
+        list
+          * 3 4 2
+      $.equal-to TRUE
+
+[] > list-lt-5
+  nop > @
+    assert-that
+      lt.
+        list
+          * 0 99 99
+        list
+          * 1 0
+      $.equal-to TRUE
+
+[] > list-lte-1
+  nop > @
+    assert-that
+      lte.
+        list
+          * 1 2 3
+        list
+          * 1 2 3
+      $.equal-to TRUE
+
+[] > list-lte-2
+  nop > @
+    assert-that
+      lte.
+        list
+          * 3 4 2
+        list
+          * 3 4
+      $.equal-to FALSE
+
+[] > list-lte-3
+  nop > @
+    assert-that
+      lte.
+        list
+          * 0 99 99
+        list
+          * 1 0
+      $.equal-to TRUE
+
+[] > list-gt-empty
+  nop > @
+    assert-that
+      gt.
+        list
+          *
+        list
+          *
+      $.equal-to FALSE
+
+[] > list-gte-empty
+  nop > @
+    assert-that
+      gte.
+        list
+          *
+        list
+          *
+      $.equal-to TRUE
+
+[] > list-lt-empty
+  nop > @
+    assert-that
+      lt.
+        list
+          *
+        list
+          *
+      $.equal-to FALSE
+
+[] > list-lte-empty
+  nop > @
+    assert-that
+      lte.
+        list
+          *
+        list
+          *
+      $.equal-to TRUE

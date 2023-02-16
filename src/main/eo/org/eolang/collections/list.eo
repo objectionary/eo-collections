@@ -360,3 +360,27 @@
               start
             acc.with item
             acc
+
+  # @todo #111:30min We need implement list comparison methods.
+  #  Below we have 4 methods for comparing lists: gt, gte, lt, lte.
+  #  We should implement them on eo and unwrap tests with them.
+  #  Since all elements are comparable (i.e. an order relation
+  #  is given for any two pairs), we only need to implement `gt`
+  #  and `gte`, and we obtain the remaining comparison operators
+  #  from their negations.
+
+  # TRUE if the current list is lexicographically
+  # greater than the passed list. Otherwise, FALSE.
+  [other] > gt
+
+  # TRUE if the current list is lexicographically
+  # greater than or equal to the passed list. Otherwise, FALSE.
+  [other] > gte
+
+  # TRUE if the current list is lexicographically
+  # less than the passed list. Otherwise, FALSE.
+  [other] > lt
+
+  # TRUE if the current list is lexicographically
+  # less than or equal to the passed list. Otherwise, FALSE.
+  [other] > lte
