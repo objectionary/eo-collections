@@ -423,6 +423,41 @@
     lst.index-of "qwerty"
     $.equal-to 0
 
+[] > last-index-of-1
+  list > lst
+    * "qwerty" 2 3
+  assert-that > @
+    lst.last-index-of 2
+    $.equal-to 1
+
+[] > last-index-of-repeated
+  list > lst
+    * 24 42 24
+  assert-that > @
+    lst.last-index-of 24
+    $.equal-to 2
+
+[] > last-index-of-not-found
+  list > lst
+    * 1 2 3
+  assert-that > @
+    lst.last-index-of 0
+    $.equal-to -1
+
+[] > last-index-of-empty
+  list > lst
+    *
+  assert-that > @
+    lst.last-index-of "abacaba"
+    $.equal-to -1
+
+[] > last-index-of-unicode
+  list > lst
+    * "Hi" "Привет" "Hola" "Guten Tag" "こんにちわ"
+  assert-that > @
+    lst.last-index-of "Привет"
+    $.equal-to 1
+
 [] > contains-1
   list > lst
     * "qwerty" "asdfgh" 3 "qwerty"

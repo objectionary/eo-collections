@@ -184,6 +184,19 @@
           i
           acc.plus 0
 
+  # Returns index of the last particular item in list.
+  # If the list has no this item, last-index-of returns -1
+  [wanted] > last-index-of
+    ^.reducedi > @
+      -1
+      [acc i item]
+        if. > @
+          eq.
+            item
+            wanted
+          i
+          acc.plus 0
+
   # TRUE if the list contain x. Otherwise, "false".
   [x] > contains
     not. > @
