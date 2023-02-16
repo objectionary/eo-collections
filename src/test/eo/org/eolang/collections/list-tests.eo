@@ -510,7 +510,7 @@
         list
           * 0 1
         list
-          * 2 3
+          * 2 3 4
       3
     $.equal-to
       TRUE
