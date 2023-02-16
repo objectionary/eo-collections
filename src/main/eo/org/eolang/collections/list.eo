@@ -352,10 +352,18 @@
             acc.with item
             acc
 
+  # TRUE if the current list is lexicographically
+  # greater than the passed list. Otherwise, FALSE.
   [other] > gt /bool
 
+  # TRUE if the current list is lexicographically
+  # greater than or equal to the passed list. Otherwise, FALSE.
   [other] > gte /bool
 
+  # TRUE if the current list is lexicographically
+  # less than the passed list. Otherwise, FALSE.
   [other] > lt /bool
 
+  # TRUE if the current list is lexicographically
+  # less than or equal to the passed list. Otherwise, FALSE.
   [other] > lte /bool
