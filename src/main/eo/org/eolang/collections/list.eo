@@ -243,7 +243,6 @@
   # one for the element, the second one
   # for the index. The result of dataization
   # the "f" should be boolean, that is TRUE or FALSE.
-
   [f] > filteredi
     if. > @
       eq.
