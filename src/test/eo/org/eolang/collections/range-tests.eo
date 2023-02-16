@@ -29,11 +29,13 @@
 +version 0.0.0
 
 [] > simple-range
-  range > rng
-    1
+  range > rng!
+    []
+      [i] > build
+        i > @!
+        build (@.plus 1) > next
+      build 1 > @
     10
-    [num]
-      num.plus 1 > @
   assert-that > @
     list rng
     $.equal-to
@@ -41,11 +43,13 @@
         * 1 2 3 4 5 6 7 8 9
 
 [] > range-with-floats
-  range > rng
-    1.0
+  range > rng!
+    []
+      [i] > x
+        i > @!
+        x (@.plus 0.5) > next
+      x 1.0 > @
     5.0
-    [num]
-      num.plus 0.5 > @
   assert-that > @
     list rng
     $.equal-to
@@ -53,23 +57,54 @@
         * 1.0 1.5 2.0 2.5 3.0 3.5 4.0 4.5
 
 [] > range-with-out-of-bounds
-  range > rng
-    1
+  range > rng!
+    []
+      [num] > b
+        num > @!
+        b (@.plus 5) > next
+      b 1 > @
     10
-    [num]
-      num.plus 5 > @
   assert-that > @
     list rng
     $.equal-to
       list
         * 1 6
 
+[] > range-with-complex-items
+  [pair] > comparable-pair
+    pair > @!
+    [x] > lt
+      lt. > @
+        ^.at 0
+        x.at 0
+    comparable-pair > next
+      *
+        (@.at 0).plus 1
+        (@.at 1).plus 1
+
+  range > rng!
+    comparable-pair
+      * 1 2
+    * 5
+
+  assert-that > @
+    list rng
+    $.equal-to
+      list
+        *
+          list (* 1 2)
+          list (* 2 3)
+          list (* 3 4)
+          list (* 4 5)
+
 [] > range-with-wrong-items-is-an-empty-array
-  range > rng
-    10
+  range > rng!
+    []
+      [num] > y
+        num > @
+        [] > next
+      y 10 > @
     1
-    [num]
-      num.minus 1 > @
   assert-that > @
     (list rng).is-empty
     $.equal-to TRUE
