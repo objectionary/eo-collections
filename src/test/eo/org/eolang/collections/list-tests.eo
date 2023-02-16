@@ -491,7 +491,7 @@
           6
           "bbb"
 
-[] > concat-returns-list
+[] > concat-returns-list-1
   list (* 0 1) > list1
   list (* 2 3) > list2
   withouti. > list3
@@ -502,6 +502,18 @@
   assert-that > @
     list3.at 0
     $.equal-to 1
+
+[] > concat-returns-list-2
+  assert-that > @
+    contains.
+      concat.
+        list
+          * 0 1
+        list
+          * 2 3
+      3
+    $.equal-to
+      TRUE
 
 [] > nested-reduced-with-literal
   reduced. > res!
