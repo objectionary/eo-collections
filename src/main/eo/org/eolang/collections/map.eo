@@ -33,7 +33,6 @@
 #  because it was implemented on eo. May be we will need to disable some tests
 #  or simplify them. Also we should remove rebuild method in multimap file
 [m] > map
-
   memory 0 > elements-amount
 
   # Returns list of all keys in multimap
