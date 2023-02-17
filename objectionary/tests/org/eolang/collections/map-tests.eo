@@ -26,7 +26,7 @@
 +home https://github.com/objectionary/eo-collections
 +junit
 +package org.eolang.collections
-+version 0.0.6
++version 0.0.7
 
 [] > map-find-do-not-crashed
   map * > mp!
@@ -36,7 +36,11 @@
     $.equal-to 0
 
 [] > map-find-works
-  map (* (*) (* (* 4 "a")) (* (* 2 "c") (* 8 "c"))) > mp!
+  map > mp!
+    *
+      *
+      * (* 4 "a")
+      * (* 2 "c") (* 8 "c")
   mp.found 2 > r2!
   mp.found 3 > r3!
   mp.found 4 > r4!
@@ -51,7 +55,7 @@
   map * > init-mp!
   init-mp.with 1 "a" > mp!
   assert-that > @
-    ((mp.found 1).at 0)
+    (mp.found 1).at 0
     $.equal-to "a"
 
 # This test has been temporarily disabled
@@ -60,7 +64,7 @@
   init-mp.with "c" "d" > mp1!
   init-mp.with 1 mp1 > mp-res!
   nop > @
-    ((((mp-res.found 1).at 0).found "c").at 0)
+    (((mp-res.found 1).at 0).found "c").at 0
     $.equal-to "d"
 
 [] > map-without-works
@@ -87,6 +91,6 @@
   ((map *).with 11 "a").with 5 "b" > mp!
   assert-that > @
     times.
-      ((mp.keys).at 0)
-      ((mp.keys).at 1)
+      (mp.keys).at 0
+      (mp.keys).at 1
     $.equal-to 55

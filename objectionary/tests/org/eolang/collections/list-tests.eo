@@ -30,7 +30,7 @@
 +home https://github.com/objectionary/eo-collections
 +junit
 +package org.eolang.collections
-+version 0.0.6
++version 0.0.7
 
 # check that list.is-empty works properly
 # @todo #83:30min To remove all nop objects from this tests.
@@ -55,11 +55,11 @@
 # list of objects
 [] > should-not-be-empty-with-3-objects
   [x] > a-1
-    ((number x).as-int > @)
+    (number x).as-int > @
   [x] > a-2
-    (x.as-byte > @)
+    x.as-byte > @
   [x] > a-3
-    ((number x).as-string > @)
+    (number x).as-string > @
   * > xs
     a-1
     a-2
@@ -179,7 +179,7 @@
         times. > @
           (sscanf "%d" current).at 0
           index.plus 1
-  (multipliedByNaturalSequence "1" "2" "3") > mulSeq
+  multipliedByNaturalSequence "1" "2" "3" > mulSeq
   assert-that > @
     sprintf "%d %d %d" (mulSeq.at 0) (mulSeq.at 1) (mulSeq.at 2)
     $.equal-to
@@ -218,7 +218,7 @@
           number
             (sscanf "%d" current).at 0
           2
-  (squares "1" "2" "3") > sq
+  squares "1" "2" "3" > sq
   assert-that > @
     sprintf "%d %d %d" (sq.at 0) (sq.at 1) (sq.at 2)
     $.equal-to
@@ -233,9 +233,9 @@
   .each > @
     [i] (stdout i > @)
 
-[] > list-without
+[] > list-withouti
   assert-that > @
-    without.
+    withouti.
       list
         * 1 2 3
       1
@@ -243,10 +243,10 @@
       list
         * 1 3
 
-[] > list-without-complex-case
+[] > list-withouti-complex-case
   [a] > foo
     seq > @
-      without. > t
+      withouti. > t
         list a
         0
       t
@@ -257,10 +257,10 @@
       list
         * "text" "f"
 
-[] > list-without-nested-array
+[] > list-withouti-nested-array
   * 3 2 1 > nested
   assert-that > @
-    without.
+    withouti.
       list
         * "smthg" 27 nested
       2
@@ -373,7 +373,7 @@
         acc.with (memory x) > @
     seq > @
       (res.at 0).write 7
-      (res.at 0)
+      res.at 0
 
 [] > reduce-with-memory-test-2
   eq. > @
@@ -381,49 +381,114 @@
     7
 
   [] > foo
-    (*).with (memory 0) > res
+    with. > res
+      *
+      memory 0
     seq > @
       (res.at 0).write 7
-      (res.at 0)
+      res.at 0
 
-[] > is-found-1
+[] > is-index-of-1
   list > lst
     * 1 2 3
   assert-that > @
-    lst.found 2
+    lst.index-of 2
     $.equal-to 1
 
-[] > is-found-2
+[] > is-index-of-2
   list > lst
     * "qwerty" 2 3
   assert-that > @
-    lst.found 2
+    lst.index-of 2
     $.equal-to 1
 
-[] > is-found-3
+[] > is-index-of-3
   list > lst
     * -1 2 -1
   assert-that > @
-    lst.found -1
+    lst.index-of -1
     $.equal-to 0
 
-[] > is-not-found
+[] > is-not-index-of
   list > lst
     * "qwerty" 2 3
   assert-that > @
-    lst.found 7
+    lst.index-of 7
     $.equal-to -1
 
-[] > is-found-first-index
+[] > is-index-of-first-index
   list > lst
     * "qwerty" "asdfgh" 3 "qwerty"
   assert-that > @
-    lst.found "qwerty"
+    lst.index-of "qwerty"
     $.equal-to 0
 
-[] > list-with-without
+[] > last-index-of-1
+  list > lst
+    * "qwerty" 2 3
+  assert-that > @
+    lst.last-index-of 2
+    $.equal-to 1
+
+[] > last-index-of-repeated
+  list > lst
+    * 24 42 24
+  assert-that > @
+    lst.last-index-of 24
+    $.equal-to 2
+
+[] > last-index-of-not-found
+  list > lst
+    * 1 2 3
+  assert-that > @
+    lst.last-index-of 0
+    $.equal-to -1
+
+[] > last-index-of-empty
+  list > lst
+    *
+  assert-that > @
+    lst.last-index-of "abacaba"
+    $.equal-to -1
+
+[] > last-index-of-unicode
+  list > lst
+    * "Hi" "Привет" "Hola" "Guten Tag" "こんにちわ"
+  assert-that > @
+    lst.last-index-of "Привет"
+    $.equal-to 1
+
+[] > contains-1
+  list > lst
+    * "qwerty" "asdfgh" 3 "qwerty"
+  assert-that > @
+    lst.contains "qwerty"
+    $.equal-to TRUE
+
+[] > contains-2
+  list > lst
+    * "qwerty" "asdfgh" 3 "qwerty"
+  assert-that > @
+    lst.contains 3
+    $.equal-to TRUE
+
+[] > contains-3
+  list > lst
+    * "Привет" "asdfgh" 3 "qwerty"
+  assert-that > @
+    lst.contains "Привет"
+    $.equal-to TRUE
+
+[] > contains-4
+  list > lst
+    * "qwerty" "asdfgh" 3 "qwerty"
+  assert-that > @
+    lst.contains "Привет"
+    $.equal-to FALSE
+
+[] > list-with-withouti
   list (* 1 2) > list1
-  without. > list2
+  withouti. > list2
     with.
       list1
       3
@@ -432,10 +497,39 @@
     list2.at 0
     $.equal-to 2
 
-[] > concat-returns-list
+[] > list-without-1
+  assert-that > @
+    without.
+      list
+        * 1 2 1 2 1 5
+      2
+    $.equal-to
+      list
+        * 1 1 1 5
+
+[] > list-without-2
+  assert-that > @
+    without.
+      list
+        *
+          "äääää"
+          5
+          "äääää"
+          "äääää"
+          6
+          "bbb"
+      "äääää"
+    $.equal-to
+      list
+        *
+          5
+          6
+          "bbb"
+
+[] > concat-returns-list-1
   list (* 0 1) > list1
   list (* 2 3) > list2
-  without. > list3
+  withouti. > list3
     concat.
       list1
       list2
@@ -444,81 +538,107 @@
     list3.at 0
     $.equal-to 1
 
+[] > concat-returns-list-2
+  assert-that > @
+    contains.
+      concat.
+        list
+          * 0 1
+        list
+          * 2 3
+      3
+    $.equal-to
+      TRUE
+
 [] > nested-reduced-with-literal
   reduced. > res!
     list
-      (* 1)
-    (* (*))
+      * 1
+    *
+      *
     [a x]
       reduced. > @
         list
-          (* (*))
-        (*)
+          *
+            *
+        *
         [aaa xxx]
-          (aaa.with xxx) > @
+          aaa.with xxx > @
   assert-that > @
-    ((res.at 0).length)
+    (res.at 0).length
     $.equal-to 0
 
 [] > nested-reduced-without-literal
   reduced. > res!
     list
-      (* 1)
-    (* (*))
+      * 1
+    *
+      *
     [a x]
       reduced. > @
         list
           a
-        (*)
+        *
         [aaa xxx]
-          (aaa.with xxx) > @
+          aaa.with xxx > @
   assert-that > @
-    ((res.at 0).length)
+    (res.at 0).length
     $.equal-to 0
 
 [] > list-sorted
-  nop > @
-    sorted. > res!
+  sorted. > res!
+    list
+      * 4 6 3 5
+  assert-that > @
+    res
+    $.equal-to
       list
-        * 4 6 3 5
-    assert-that
-      res
-      $.equal-to
-        list
-          * 3 4 5 6
+        * 3 4 5 6
 
 [] > list-sorted-2
-  nop > @
-    sorted. > res!
+  sorted. > res!
+    list
+      * 5 3 6
+  assert-that > @
+    res
+    $.equal-to
       list
-        * 5 3 6 4
-    assert-that
-      res
-      $.equal-to
-        list
-          * 3 4 5 6
+        * 3 5 6
 
 [] > reversed-list-sorted
+  sorted. > res!
+    list
+      * 3 2 1
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 1 2 3
+
+# @todo #85:30min Fix sorting with list with 0. For some reason
+#  `(list * 3 2 0).sorted` fails with "Can't #at(3) the 4th element of the
+#  array, there are just 3 of them". Check also
+#  complex-objects-list-sorted-with-zero test
+[] > reversed-list-sorted-with-zero
   nop > @
     sorted. > res!
       list
-        * 2 1 0
+        * 3 2 0
     assert-that
       res
       $.equal-to
         list
-          * 0 1 2
+          * 0 2 3
 
 [] > similar-elements-list-sorted
-  nop > @
-    sorted. > res!
+  sorted. > res!
+    list
+      * 1 1 1
+  assert-that > @
+    res
+    $.equal-to
       list
         * 1 1 1
-    assert-that
-      res
-      $.equal-to
-        list
-          * 1 1 1
 
 [] > one-element-list-sorted
   sorted. > res!
@@ -541,22 +661,21 @@
         *
 
 [] > negative-numbers-list-sorted
-  nop > @
-    sorted. > res!
+  sorted. > res!
+    list
+      * 1 2 -3 -4
+  assert-that > @
+    res
+    $.equal-to
       list
-        * 1 2 -3 -4
-    assert-that
-      res
-      $.equal-to
-        list
-          * -4 -3 1 2
+        * -4 -3 1 2
 
 [] > complex-objects-list-compairing
   list > res!
     *
-      (* 0 1)
-      (* 4 0)
-      (* 7 3)
+      * 0 1
+      * 4 0
+      * 7 3
   assert-that > @
     res
     $.equal-to
@@ -575,6 +694,30 @@
         x.at 0
 
 [] > complex-objects-list-sorted
+  sorted. > res!
+    list
+      *
+        comparable-pair (* 7 3)
+        comparable-pair (* 1 1)
+        comparable-pair (* 4 0)
+  assert-that > @
+    res
+    $.equal-to
+      list
+        *
+          list (* 1 1)
+          list (* 4 0)
+          list (* 7 3)
+
+  [pair] > comparable-pair
+    pair > @
+
+    [x] > lt
+      lt. > @
+        ^.at 0
+        x.at 0
+
+[] > complex-objects-list-sorted-with-zero
   nop > @
     sorted. > res!
       list
@@ -732,3 +875,374 @@
                 v
             FALSE
     TRUE
+
+[] > list-inflated-zero-steps
+  inflated. > res!
+    list
+      *
+    [a i]
+      if. > @
+        i.gt -1
+        *
+        * i
+  assert-that > @
+    res.length
+    $.equal-to 0
+
+[] > list-inflated-1
+  inflated. > res!
+    list
+      *
+    [a i]
+      if. > @
+        i.gt 4
+        *
+        * i
+  assert-that > @
+    res.length
+    $.equal-to 5
+
+[] > list-inflated-2
+  inflated. > res!
+    list
+      *
+    [a i]
+      if. > @
+        eq.
+          a.length
+          1
+        *
+        * i
+  assert-that > @
+    res.length
+    $.equal-to 1
+
+[] > list-inflated-3
+  inflated. > res!
+    list
+      *
+    [a i]
+      if. > @
+        eq.
+          a.length
+          1
+        * i
+        *
+  assert-that > @
+    res.length
+    $.equal-to 0
+
+[] > list-inflated-4
+  inflated. > res!
+    list
+      * 1
+    [a i]
+      if. > @
+        eq.
+          a.length
+          2
+        *
+        * i
+  assert-that > @
+    res.length
+    $.equal-to 2
+
+[] > list-inflated-5
+  inflated. > res!
+    list
+      * 2
+    [a i]
+      if. > @
+        eq.
+          a.length
+          5
+        *
+        * i i
+  assert-that > @
+    res
+    $.equal-to
+      list
+        * 2 0 0 1 1
+
+[] > inflated-returns-list
+  inflated. > res!
+    list
+      * 2
+    [a i]
+      if. > @
+        eq.
+          a.length
+          5
+        *
+        * i i
+  assert-that > @
+    is-empty.
+      res
+    $.equal-to FALSE
+
+[] > simple-head
+  assert-that > @
+    head.
+      list
+        * 1 2 3 4 5
+      1
+    $.equal-to
+      list
+        * 1
+
+[] > list-head-with-zero-index
+  assert-that > @
+    head.
+      list
+        * 1 2 3
+      0
+    $.equal-to
+      list *
+
+[] > list-head-with-length-index
+  assert-that > @
+    head.
+      list
+        * 1 2 3
+      3
+    $.equal-to
+      list
+        * 1 2 3
+
+[] > complex-head
+  assert-that > @
+    head.
+      list
+        * "foo" 2.2 00-01 "bar"
+      2
+    $.equal-to
+      list
+        * "foo" 2.2
+[] > simple-tail
+  assert-that > @
+    tail.
+      list
+        * 1 2 3 4 5
+      2
+    $.equal-to
+      list
+        * 4 5
+
+[] > zero-index-in-tail
+  assert-that > @
+    tail.
+      list
+        * 1 2 3 4 5
+      0
+    $.equal-to
+      list *
+
+[] > large-index-in-tail
+  assert-that > @
+    tail.
+      list
+        * 1 2 3 4 5
+      10
+    $.equal-to
+      list
+        * 1 2 3 4 5
+
+[] > list-gt-1
+  nop > @
+    assert-that
+      qt.
+        list
+          * 3 2 1
+        list
+          * 2 1 0
+      $.equal-to TRUE
+
+[] > list-gt-2
+  nop > @
+    assert-that
+      gt.
+        list
+          * 3 2 1
+        list
+          * 2 10 100
+      $.equal-to TRUE
+
+[] > list-gt-3
+  nop > @
+    assert-that
+      gt.
+        list
+          * 1 2 3
+        list
+          * 1 2 3
+      $.equal-to FALSE
+
+[] > list-gt-4
+  nop > @
+    assert-that
+      gt.
+        list
+          * 3 4 2
+        list
+          * 3 4
+      $.equal-to TRUE
+
+[] > list-gt-5
+  nop > @
+    assert-that
+      gt.
+        list
+          * 0 99 99
+        list
+          * 1 0
+      $.equal-to FALSE
+
+[] > list-gte-1
+  nop > @
+    assert-that
+      gte.
+        list
+          * 1 2 3
+        list
+          * 1 2 3
+      $.equal-to TRUE
+
+[] > list-gte-2
+  nop > @
+    assert-that
+      gte.
+        list
+          * 3 4 2
+        list
+          * 3 4
+      $.equal-to TRUE
+
+[] > list-gte-3
+  nop > @
+    assert-that
+      gte.
+        list
+          * 0 99 99
+        list
+          * 1 0
+      $.equal-to FALSE
+
+[] > list-lt-1
+  nop > @
+    assert-that
+      lt.
+        list
+          * 3 2 1
+        list
+          * 2 1 0
+      $.equal-to FALSE
+
+[] > list-lt-2
+  nop > @
+    assert-that
+      lt.
+        list
+          * 3 2 1
+        list
+          * 2 10 100
+      $.equal-to FALSE
+
+[] > list-lt-3
+  nop > @
+    assert-that
+      lt.
+        list
+          * 1 2 3
+        list
+          * 1 2 3
+      $.equal-to FALSE
+
+[] > list-lt-4
+  nop > @
+    assert-that
+      lt.
+        list
+          * 3 4
+        list
+          * 3 4 2
+      $.equal-to TRUE
+
+[] > list-lt-5
+  nop > @
+    assert-that
+      lt.
+        list
+          * 0 99 99
+        list
+          * 1 0
+      $.equal-to TRUE
+
+[] > list-lte-1
+  nop > @
+    assert-that
+      lte.
+        list
+          * 1 2 3
+        list
+          * 1 2 3
+      $.equal-to TRUE
+
+[] > list-lte-2
+  nop > @
+    assert-that
+      lte.
+        list
+          * 3 4 2
+        list
+          * 3 4
+      $.equal-to FALSE
+
+[] > list-lte-3
+  nop > @
+    assert-that
+      lte.
+        list
+          * 0 99 99
+        list
+          * 1 0
+      $.equal-to TRUE
+
+[] > list-gt-empty
+  nop > @
+    assert-that
+      gt.
+        list
+          *
+        list
+          *
+      $.equal-to FALSE
+
+[] > list-gte-empty
+  nop > @
+    assert-that
+      gte.
+        list
+          *
+        list
+          *
+      $.equal-to TRUE
+
+[] > list-lt-empty
+  nop > @
+    assert-that
+      lt.
+        list
+          *
+        list
+          *
+      $.equal-to FALSE
+
+[] > list-lte-empty
+  nop > @
+    assert-that
+      lte.
+        list
+          *
+        list
+          *
+      $.equal-to TRUE

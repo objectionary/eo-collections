@@ -24,11 +24,10 @@
 +alias org.eolang.math.number
 +home https://github.com/objectionary/eo-collections
 +package org.eolang.collections
-+rt jvm org.eolang:eo-collections:0.0.6
-+version 0.0.6
++rt jvm org.eolang:eo-collections:0.0.7
++version 0.0.7
 
 [m] > multimap
-
   memory 0 > elements-amount
 
   # Returns list of all keys in multimap
