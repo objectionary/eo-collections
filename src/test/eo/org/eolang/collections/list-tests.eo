@@ -85,7 +85,7 @@
     (list xs).is-empty.not
     $.equal-to TRUE
 
-[] > insert-element
+[] > simple-insert
   assert-that > @
     withi.
       list
@@ -96,7 +96,7 @@
       list
         * 1 2 3 "hello" 4 5
 
-[] > insert-at-begin
+[] > insert-with-zero-index
   assert-that > @
     withi.
       list
@@ -107,7 +107,18 @@
       list
         * "hello" 1 2 3 4 5
 
-[] > insert-at-end
+[] > insert-with-negative-index
+  assert-that > @
+    withi.
+      list
+        * 1 2 3 4 5
+      -10
+      "hello"
+    $.equal-to
+      list
+        * "hello" 1 2 3 4 5
+
+[] > insert-with-length-index
   assert-that > @
     withi.
       list
