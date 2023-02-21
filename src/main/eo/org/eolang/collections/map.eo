@@ -49,6 +49,7 @@
   #  As we have contains-key, we have to implement contains-value
   #  method, which will check if value exists in current map.
   #  This method should return bool value.
+
   # TRUE if the map contain key. Otherwise, FALSE.
   [key] > contains-key
     reduced. > @
