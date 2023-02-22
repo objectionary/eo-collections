@@ -94,3 +94,19 @@
       (mp.keys).at 0
       (mp.keys).at 1
     $.equal-to 55
+
+[] > map-contains-key
+  ((map *).with 11 "a").with 5 "b" > mp!
+  assert-that > @
+    contains-key.
+      mp
+      11
+    $.equal-to TRUE
+
+[] > map-do-not-contains-key
+  ((map *).with 11 "a").with 5 "b" > mp!
+  assert-that > @
+    contains-key.
+      mp
+      12
+    $.equal-to FALSE

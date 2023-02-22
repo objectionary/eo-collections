@@ -44,6 +44,24 @@
       [curr]
         curr.at 0 > @
 
+  # @todo #119:30min We should implement map.contains-value.
+  #  As we have contains-key, we have to implement contains-value
+  #  method, which will check if value exists in current map.
+  #  This method should return bool value.
+
+  # TRUE if the map contain key. Otherwise, FALSE.
+  [key] > contains-key
+    reduced. > @
+      keys.
+        ^
+      FALSE
+      [a x]
+        or. > @
+          a
+          eq.
+            x
+            key
+
   # Returns amount of elements in multimap
   [] > size
     elements-amount > @
