@@ -284,7 +284,6 @@
   # with one attribute for the element.
   # The result of dataization the "f"
   # should be boolean, that is TRUE or FALSE.
-
   [f] > filtered
     ^.filteredi > @
       [item index]
@@ -370,7 +369,7 @@
   #  is given for any two pairs), we only need to implement `gt`
   #  and `gte`, and we obtain the remaining comparison operators
   #  from their negations.
-
+  #
   # TRUE if the current list is lexicographically
   # greater than the passed list. Otherwise, FALSE.
   [other] > gt
