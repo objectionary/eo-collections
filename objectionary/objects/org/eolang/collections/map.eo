@@ -25,8 +25,8 @@
 +alias org.eolang.math.number
 +home https://github.com/objectionary/eo-collections
 +package org.eolang.collections
-+rt jvm org.eolang:eo-collections:0.0.7
-+version 0.0.7
++rt jvm org.eolang:eo-collections:0.0.8
++version 0.0.8
 
 # @todo #15:30min Current implementation using rebuild.
 #  We should implement all methods only via using rebuilded method,
@@ -43,6 +43,24 @@
         caa
       [curr]
         curr.at 0 > @
+
+  # @todo #119:30min We should implement map.contains-value.
+  #  As we have contains-key, we have to implement contains-value
+  #  method, which will check if value exists in current map.
+  #  This method should return bool value.
+  #
+  # TRUE if the map contain key. Otherwise, FALSE.
+  [key] > contains-key
+    reduced. > @
+      keys.
+        ^
+      FALSE
+      [a x]
+        or. > @
+          a
+          eq.
+            x
+            key
 
   # Returns amount of elements in multimap
   [] > size

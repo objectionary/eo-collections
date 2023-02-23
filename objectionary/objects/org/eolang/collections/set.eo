@@ -24,8 +24,8 @@
 +alias org.eolang.collections.map
 +home https://github.com/objectionary/eo-collections
 +package org.eolang.collections
-+rt jvm org.eolang:eo-collections:0.0.7
-+version 0.0.7
++rt jvm org.eolang:eo-collections:0.0.8
++version 0.0.8
 
 # @todo #120:30min Optimize set. Current implementation of set is quite heavy
 #  and takes a lot of memory. Set should be refactored so he "rebuild" itself

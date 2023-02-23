@@ -22,8 +22,8 @@
 
 +home https://github.com/objectionary/eo-collections
 +package org.eolang.collections
-+rt jvm org.eolang:eo-collections:0.0.7
-+version 0.0.7
++rt jvm org.eolang:eo-collections:0.0.8
++version 0.0.8
 
 [arr] > list
   arr > @
@@ -50,10 +50,7 @@
   # of the array.
   [a f] > reducedi
     if. > @
-      eq.
-        0
-        length.
-          arr
+      arr.length.eq 0
       a
       rec-reduced
         * a 0
@@ -61,25 +58,21 @@
         arr
 
     [acc-index func carr] > rec-reduced
-      acc-index.at 0 > acc
       acc-index.at 1 > index
-      seq > @
-        func > new-acc!
-          acc
+      if. > @
+        eq.
+          index.plus 1 > next-index
+          carr.length
+        func > new-acc
+          acc-index.at 0
           index
           carr.at index
-        if.
-          (index.plus 1).eq (carr.length)
-          new-acc
-          rec-reduced
-            *
-              func
-                acc
-                index
-                carr.at index
-              index.plus 1
-            func
-            carr
+        rec-reduced
+          *
+            new-acc
+            next-index
+          func
+          carr
 
   # Reduce from start "a" using the function "f"
   [a f] > reduced
@@ -291,7 +284,6 @@
   # with one attribute for the element.
   # The result of dataization the "f"
   # should be boolean, that is TRUE or FALSE.
-
   [f] > filtered
     ^.filteredi > @
       [item index]
@@ -377,7 +369,7 @@
   #  is given for any two pairs), we only need to implement `gt`
   #  and `gte`, and we obtain the remaining comparison operators
   #  from their negations.
-
+  #
   # TRUE if the current list is lexicographically
   # greater than the passed list. Otherwise, FALSE.
   [other] > gt

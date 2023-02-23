@@ -30,7 +30,7 @@
 +home https://github.com/objectionary/eo-collections
 +junit
 +package org.eolang.collections
-+version 0.0.7
++version 0.0.8
 
 # check that list.is-empty works properly
 # @todo #83:30min To remove all nop objects from this tests.
