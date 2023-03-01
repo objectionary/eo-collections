@@ -20,20 +20,49 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+alias org.eolang.collections.hash
++alias org.eolang.collections.hash-code-of
++alias org.eolang.hamcrest.assert-that
++alias org.eolang.math.number
 +home https://github.com/objectionary/eo-collections
 +junit
 +package org.eolang.collections
 +version 0.0.0
 
-[] > print-hash
-  seq > @
-    QQ.io.stdout
-      QQ.txt.sprintf
-        "TRUE %d\nFALSE %d\n42 %d\n14325,2 %d\nHello world %d\n"
-        hash TRUE
-        hash FALSE
-        hash 42
-        hash 14325.2
-        hash "Hello world"
-    TRUE
+[] > hash-code-bools-is-integer
+  assert-that > @
+    and.
+      is-int.
+        number
+          hash-code-of TRUE
+      is-int.
+        number
+          hash-code-of FALSE
+    $.equal-to TRUE
+
+[] > hash-codes-of-the-same-numbers-are-equal
+  42 > forty-two!
+  assert-that > @
+    hash-code-of forty-two
+    $.equal-to
+      hash-code-of forty-two
+
+[] > hash-code-of-the-same-strings-are-equal
+  "hello" > str!
+  assert-that > @
+    hash-code-of str
+    $.equal-to
+      hash-code-of str
+
+[] > hash-code-of-different-numbers-are-different
+  assert-that > @
+    hash-code-of 42
+    $.not
+      $.equal-to
+        hash-code-of 24
+
+[] > hash-of-int-is-int
+  assert-that > @
+    is-int.
+      number
+        hash-code-of 42
+    $.equal-to TRUE
