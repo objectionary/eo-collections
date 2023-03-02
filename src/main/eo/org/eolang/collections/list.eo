@@ -435,13 +435,13 @@
                   x
                 1
                 0
-  if. > @
-    neq.
+    if. > @
+      neq.
+        res
+        0
       res
-      0
-    res
-    not.
-      first-smaller
+      not.
+        first-smaller
 
   # TRUE if the current list is lexicographically
   # greater than or equal to the passed list. Otherwise, FALSE.
