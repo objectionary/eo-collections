@@ -70,7 +70,7 @@
   # Replaces if there was one before
   # @todo #156:30min. Replace all "as-hash" object usings with "hash-code-of".
   #  In order to make "eo-runtime" independent of "eo-collections" need to
-  #  replace all "as-hash" objects with new "hash-code-of" object
+  #  replace all "as-hash" objects with new "hash-code-of" object.
   [key value] > with
     multimap * > mmp!
     * key value > new-pair!
