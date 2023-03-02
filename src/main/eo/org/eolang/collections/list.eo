@@ -391,8 +391,9 @@
   # greater than the passed list. Otherwise, FALSE.
   [other] > gt
     if. > first-smaller!
-      ^.length
-      other.length
+      lt.
+        ^.length
+        other.length
     if. > res!
       first-smaller
       reducedi.
