@@ -390,6 +390,58 @@
   # TRUE if the current list is lexicographically
   # greater than the passed list. Otherwise, FALSE.
   [other] > gt
+    if. > first-smaller!
+      ^.length
+      other.length
+    if. > res!
+      first-smaller
+      reducedi.
+        ^
+        0
+        [a i x]
+          if. > @
+            neq.
+              a
+              0
+            a
+            if.
+              qt.
+                x
+                other.at i
+              1
+              if.
+                qt.
+                  other.at i
+                  x
+                -1
+                0
+      reducedi.
+        other
+        0
+        [a i x]
+          if. > @
+            neq.
+              a
+              0
+            a
+            if.
+              qt.
+                x
+                ^.at i
+              -1
+              if.
+                qt.
+                  ^.at i
+                  x
+                1
+                0
+  if. > @
+    neq.
+      res
+      0
+    res
+    not.
+      first-smaller
 
   # TRUE if the current list is lexicographically
   # greater than or equal to the passed list. Otherwise, FALSE.
