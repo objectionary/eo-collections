@@ -1136,6 +1136,15 @@
         * 1 0
     $.equal-to FALSE
 
+[] > list-gt-6
+  assert-that > @
+    gt.
+      list
+        * 0
+      list
+        * 1
+    $.equal-to FALSE
+
 [] > list-gte-1
   nop > @
     assert-that
