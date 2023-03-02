@@ -405,12 +405,12 @@
               0
             a
             if.
-              qt.
+              gt.
                 x
                 other.at i
               1
               if.
-                qt.
+                gt.
                   other.at i
                   x
                 -1
@@ -425,12 +425,12 @@
               0
             a
             if.
-              qt.
+              gt.
                 x
                 ^.at i
               -1
               if.
-                qt.
+                gt.
                   ^.at i
                   x
                 1
