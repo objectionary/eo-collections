@@ -403,7 +403,7 @@
             neq
               a
               0
-            a
+            a.plus 0
             if.
               gt.
                 x
@@ -423,7 +423,7 @@
             neq
               a
               0
-            a
+            a.plus 0
             if.
               gt.
                 x
