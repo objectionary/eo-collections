@@ -387,7 +387,7 @@
   #  and `gte`, and we obtain the remaining comparison operators
   #  from their negations.
   #
-  # TRUE if the current list is lexicographically
+  # Returns TRUE if the current list is lexicographically
   # greater than the passed list. Otherwise, FALSE.
   [other] > gt
     lt. > first-smaller!
