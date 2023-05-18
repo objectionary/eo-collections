@@ -30,8 +30,7 @@ eq. > @
 ### List
 The object `QQ.collections.list` is a decorator of `QQ.array`.
 
-The attribute `is-empty` is TRUE if the length of the
-array is zero.
+The attribute `is-empty` is TRUE if the length of array is zero.
 
 The attribute `eq` is TRUE if each element of the array is equal to the corresponding element of another array and the lengths of both arrays are the same.
 
