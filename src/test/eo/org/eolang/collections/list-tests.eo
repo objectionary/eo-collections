@@ -32,7 +32,7 @@
 +tests
 +version 0.0.0
 
-# check that list.is-empty works properly
+# check that list.is-empty works properly.
 # @todo #83:30min To remove all nop objects from this tests.
 #  When 'while' objects behaviour was changed, list.sorted tests started to fail.
 #  We need to redo list.sorted object somehow and remove 'nop' objects
