@@ -26,10 +26,10 @@
 +rt jvm org.eolang:eo-collections:0.0.0
 +version 0.0.0
 
-# Hash code - the pseudo-unique integer representation of an object
+# Hash code - the pseudo-unique integer representation of an object.
 #
 # Here "h" must be an object that can be converted to bytes via "as-bytes"
-# object
+# object.
 [h] > hash-code-of
   switch > @
     *
