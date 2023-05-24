@@ -28,6 +28,9 @@
 +package org.eolang.collections
 +version 0.0.0
 
+# @todo #156:30min Add more tests for hash-code-of object.
+#  It would be interesting to test floating numbers and, maybe, big numbers
+#  (or some corner cases)
 [] > hash-code-bools-is-integer
   assert-that > @
     and.
@@ -37,6 +40,13 @@
       is-int.
         number
           hash-code-of FALSE
+    $.equal-to TRUE
+
+[] > hash-of-int-is-int
+  assert-that > @
+    is-int.
+      number
+        hash-code-of 42
     $.equal-to TRUE
 
 [] > hash-codes-of-the-same-numbers-are-equal
@@ -59,10 +69,3 @@
     $.not
       $.equal-to
         hash-code-of 24
-
-[] > hash-of-int-is-int
-  assert-that > @
-    is-int.
-      number
-        hash-code-of 42
-    $.equal-to TRUE
