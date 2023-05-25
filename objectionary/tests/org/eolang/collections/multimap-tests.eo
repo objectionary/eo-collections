@@ -24,9 +24,9 @@
 +alias org.eolang.collections.multimap
 +alias org.eolang.hamcrest.assert-that
 +home https://github.com/objectionary/eo-collections
-+junit
 +package org.eolang.collections
-+version 0.0.8
++tests
++version 0.0.9
 
 [] > rebuild-do-not-crush
   * 1 2 > harr

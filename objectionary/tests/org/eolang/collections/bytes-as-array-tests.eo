@@ -24,9 +24,9 @@
 +alias org.eolang.collections.list
 +alias org.eolang.hamcrest.assert-that
 +home https://github.com/objectionary/eo
-+junit
 +package org.eolang.collections
-+version 0.0.8
++tests
++version 0.0.9
 
 [] > bytes-to-array
   assert-that > @
