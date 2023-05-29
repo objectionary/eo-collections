@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
++alias org.eolang.collections.hash-code-of
 +alias org.eolang.collections.list
 +alias org.eolang.collections.multimap
 +alias org.eolang.math.number
@@ -68,9 +69,6 @@
 
   # Returns the new map with added object
   # Replaces if there was one before
-  # @todo #156:30min. Replace all "as-hash" object usings with "hash-code-of".
-  #  In order to make "eo-runtime" independent of "eo-collections" need to
-  #  replace all "as-hash" objects with new "hash-code-of" object.
   [key value] > with
     multimap * > mmp!
     * key value > new-pair!
@@ -88,7 +86,8 @@
   # If no element was found, it returns an empty array
   [key] > found
     multimap * > mmp!
-    number (key.as-hash) > num!
+    number > num!
+      hash-code-of key
     if. > @
       eq.
         m.length

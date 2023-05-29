@@ -20,6 +20,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
++alias org.eolang.collections.hash-code-of
 +alias org.eolang.collections.list
 +alias org.eolang.collections.multimap
 +alias org.eolang.hamcrest.assert-that
@@ -181,8 +182,9 @@
   TRUE > a!
   1231 > b!
   assert-that > @
-    a.as-hash
-    $.equal-to (b.as-hash)
+    hash-code-of a
+    $.equal-to
+      hash-code-of b
 
 # @todo #15:30min This test was temporary disabled here.
 #  As we have problems with little size of stack, this test falls

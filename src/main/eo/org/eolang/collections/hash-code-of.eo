@@ -36,7 +36,7 @@
       eq.
         h.as-bytes > h-as-bytes!
         01-
-      1232
+      1231
     *
       h-as-bytes.eq 00-
       1237
