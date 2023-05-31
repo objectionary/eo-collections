@@ -256,12 +256,6 @@
         a.write b
         b.write temp
 
-  # @todo #182:30min Object "rec-filtered" inside "filteredi" can be simplified
-  #  without using object "seq". To achieve that object "rec-filtered" should
-  #  check if "index" is equals to length of "carr" at the beginning. If it's
-  #  TRUE - "new-list" should be returned. If it's FALSE - new recursive
-  #  iteration should be started. Use "list.reducedi" as an example.
-  #
   # Filter list with index with the function "f".
   # Here "f" must be an abstract
   # object with two attributes. The first
@@ -284,23 +278,20 @@
       index-carr.at 0 > index
       index-carr.at 1 > carr
       carr.at index > item
-      seq > @
-        func > acc!
-          item
-          index
-        if. > filt-list
-          eq.
-            acc
-            TRUE
-          new-list.with item
-          new-list
-        if.
-          (index.plus 1).eq (carr.length)
-          filt-list
-          rec-filtered
-            * (index.plus 1) carr
+      if. > @
+        index.eq carr.length
+        new-list
+        rec-filtered
+          *
+            index.plus 1
+            carr
+          func
+          if.
             func
-            filt-list
+              item
+              index
+            new-list.with item
+            new-list
 
   # Filter list without index with the function "f".
   # Here "f" must be an abstract object
