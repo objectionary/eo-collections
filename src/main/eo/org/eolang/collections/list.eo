@@ -275,11 +275,11 @@
         list *
 
     [index-carr func new-list] > rec-filtered
-      index-carr.at 0 > index
-      index-carr.at 1 > carr
-      carr.at index > item
       if. > @
-        index.eq carr.length
+        eq.
+          index-carr.at 0 > index
+          length.
+            index-carr.at 1 > carr
         new-list
         rec-filtered
           *
@@ -288,7 +288,7 @@
           func
           if.
             func
-              item
+              carr.at index > item
               index
             new-list.with item
             new-list
