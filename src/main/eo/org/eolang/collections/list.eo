@@ -260,7 +260,7 @@
   #  without using object "seq". To achieve that object "rec-filtered" should
   #  check if "index" is equals to length of "carr" at the beginning. If it's
   #  TRUE - "new-list" should be returned. If it's FALSE - new recursive
-  #  iteration should be started.
+  #  iteration should be started. Use "list.reducedi" as an example.
   #
   # Filter list with index with the function "f".
   # Here "f" must be an abstract
