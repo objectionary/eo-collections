@@ -256,6 +256,12 @@
         a.write b
         b.write temp
 
+  # @todo #182:30min Object "rec-filtered" inside "filteredi" can be simplified
+  #  without using object "seq". To achieve that object "rec-filtered" should
+  #  check if "index" is equals to length of "carr" at the beginning. If it's
+  #  TRUE - "new-list" should be returned. If it's FALSE - new recursive
+  #  iteration should be started.
+  #
   # Filter list with index with the function "f".
   # Here "f" must be an abstract
   # object with two attributes. The first
