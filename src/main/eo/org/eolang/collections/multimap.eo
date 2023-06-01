@@ -134,7 +134,7 @@
       list
         sorted-pairs
       *
-      [a i x]
+      [a x i]
         if. > @
           gte.
             x.at 0
@@ -177,7 +177,7 @@
         list
           arr
         *
-        [a i x]
+        [a x i]
           if. > @
             and.
               gte.

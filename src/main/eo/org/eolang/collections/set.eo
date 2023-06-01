@@ -43,7 +43,7 @@
             *
               map *
               list *
-            [acc index item]
+            [acc item index]
               acc.at 0 > mp!
               if. > @
                 not.

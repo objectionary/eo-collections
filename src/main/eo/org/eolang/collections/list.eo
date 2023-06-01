@@ -59,19 +59,11 @@
           arr.length
           i
 
-  # @todo #181:30min Wrong order of the attributes of object "f". For some
-  #  reason "reducedi" is the only object that walks through array and where
-  #  function has attributes in next order: accumulator, index, item. All
-  #  other objects like mappedi, filteredi, eachi have attributes in the next
-  #  order: item, index. So "index" must be after "item" object. Also need to
-  #  change the order of attributes in all other objects that use "reducedi"
-  #
   # Reduce with index from start "a" using the function "f".
   # Here "f" must be an abstract
   # object with three free attributes. The first
   # one for the accumulator, the second one
-  # for the index and the third one for the element
-  # of the array.
+  # for the element of the array and the third one for the index.
   [a f] > reducedi
     if. > @
       arr.length.eq 0
@@ -89,8 +81,8 @@
           carr.length
         func > new-acc
           acc-index.at 0
-          index
           carr.at index
+          index
         rec-reduced
           *
             new-acc
@@ -102,7 +94,7 @@
   [a f] > reduced
     ^.reducedi > @
       a
-      [a idx item]
+      [a item idx]
         &.f > @
           a
           item
@@ -115,7 +107,7 @@
     list > @
       ^.reducedi
         *
-        [a idx item]
+        [a item idx]
           with. > @
             a
             &.f item idx
@@ -136,7 +128,7 @@
     seq > @
       ^.reducedi
         TRUE
-        [a i x]
+        [a x i]
           &.f > @
             x
             i
@@ -156,7 +148,7 @@
   [i] > withouti
     ^.reducedi > @
       *
-      [a idx item]
+      [a item idx]
         if. > @
           idx.eq i
           a
@@ -180,7 +172,7 @@
         x.length
       ^.reducedi
         TRUE
-        [a idx item]
+        [a item idx]
           and. > @
             a
             eq.
@@ -201,7 +193,7 @@
   [wanted] > index-of
     ^.reducedi > @
       -1
-      [acc i item]
+      [acc item i]
         if. > @
           and.
             eq.
@@ -218,7 +210,7 @@
   [wanted] > last-index-of
     ^.reducedi > @
       -1
-      [acc i item]
+      [acc item i]
         if. > @
           eq.
             item
@@ -239,7 +231,7 @@
     reducedi. > res!
       ^
       *
-      [a i x]
+      [a x i]
         a.with (memory i) > @
     memory 0 > i
     memory 0 > j
@@ -370,7 +362,7 @@
         ^
         ^.reducedi
           list *
-          [acc idx item]
+          [acc item idx]
             if. > @
               idx.gte index
               acc
@@ -387,7 +379,7 @@
       ^
       ^.reducedi
         list *
-        [acc idx item]
+        [acc item idx]
           if. > @
             gte.
               idx
