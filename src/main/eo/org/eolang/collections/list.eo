@@ -59,6 +59,13 @@
           arr.length
           i
 
+  # @todo #181:30min Wrong order of the attributes of object "f". For some
+  #  reason "reducedi" is the only object that walks through array and where
+  #  function has attributes in next order: accumulator, index, item. All
+  #  other objects like mappedi, filteredi, eachi have attributes in the next
+  #  order: item, index. So "index" must be after "item" object. Also need to
+  #  change the order of attributes in all other objects that use "reducedi"
+  #
   # Reduce with index from start "a" using the function "f".
   # Here "f" must be an abstract
   # object with three free attributes. The first
@@ -123,15 +130,27 @@
 
   # For each array element dataize the object
   # Here "f" must be an abstract object with
+  # two free attributes: the element of the
+  # array and its index.
+  [f] > eachi
+    seq > @
+      ^.reducedi
+        TRUE
+        [a i x]
+          &.f > @
+            x
+            i
+      TRUE
+
+  # For each array element dataize the object
+  # Here "f" must be an abstract object with
   # one free attribute, the element of the
   # array.
   [f] > each
-    seq > @
-      ^.reduced
-        TRUE
-        [a x]
-          f x > @
-      TRUE
+    ^.eachi > @
+      [x i]
+        &.f > @
+          x
 
   # Create a new list without the i-th element
   [i] > withouti

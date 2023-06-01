@@ -277,6 +277,20 @@
   .each > @
     [i] (stdout i > @)
 
+[] > iterates-with-eachi
+  list
+    *
+      "one"
+      "two"
+      "three"
+  .eachi > @
+    [item index]
+      stdout > @
+        sprintf
+          "[%d]: %s\n"
+          index
+          item
+
 [] > list-withouti
   assert-that > @
     withouti.
