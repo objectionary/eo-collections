@@ -49,26 +49,25 @@
     *
       TRUE
       hc
-    [] > hc
-      [acc index bytes] > rec-hash-code
-        if. > @
-          index.eq bytes.length
-          acc
-          rec-hash-code
-            plus.
-              times.
-                31
-                acc
-              as-int.
-                right.
-                  0.as-bytes.and
-                    bytes.at index
-                  54
-            index.plus 1
-            bytes
-            0.as-bytes
-      rec-hash-code > @
-        1
-        0
-        bytes-as-array
-          h-as-bytes
+  [] > hc
+    [acc index bytes] > rec-hash-code
+      if. > @
+        index.eq bytes.length
+        acc
+        rec-hash-code
+          plus.
+            times.
+              31
+              acc
+            as-int.
+              right.
+                0.as-bytes.and
+                  bytes.at index
+                54
+          index.plus 1
+          bytes
+    rec-hash-code > @
+      1
+      0
+      bytes-as-array
+        h-as-bytes
