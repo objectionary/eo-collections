@@ -65,7 +65,10 @@
 
   # Returns amount of elements in multimap
   [] > size
-    elements-amount > @
+    if. > @
+      TRUE
+      elements-amount
+      elements-amount
 
   # Returns the new map with added object
   # Replaces if there was one before

@@ -50,7 +50,7 @@
       TRUE
       hc
     [] > hc
-      [acc index bytes zero-as-bytes] > rec-hash-code
+      [acc index bytes] > rec-hash-code
         if. > @
           index.eq bytes.length
           acc
@@ -61,16 +61,14 @@
                 acc
               as-int.
                 right.
-                  zero-as-bytes.and
+                  0.as-bytes.and
                     bytes.at index
                   54
             index.plus 1
             bytes
-            zero-as-byte
-      0.as-bytes > zero-as-bytes
+            0.as-bytes
       rec-hash-code > @
         1
         0
         bytes-as-array
           h-as-bytes
-        zero-as-bytes
