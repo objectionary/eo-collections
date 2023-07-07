@@ -35,11 +35,10 @@
         number start
       is-int.
         number end
-    range
-      []
-        [num] > build
-          num > @
-          build (@.plus 1) > next
-        build start > @
-      end
+    range run end
+    [] > run
+      [num] > build
+        num > @
+        build (@.plus 1) > next
+      build start > @
     error "some of the arguments are not integers"

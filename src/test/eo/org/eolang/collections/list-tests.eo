@@ -169,14 +169,10 @@
     $.equal-to FALSE
 
 [] > reducedi-nested-functions
-  [] > a
-    10 > @
-  [] > b
-    500 > @
   assert-that > @
     reducedi.
       list
-        * a b
+        * 10 500
       0
       [acc x i]
         check x > @

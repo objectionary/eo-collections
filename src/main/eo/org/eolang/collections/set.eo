@@ -35,30 +35,29 @@
   if. > @!
     lst.is-empty
     lst
-    []
-      reduced. > @
-        at.
-          reducedi.
-            lst
-            *
-              map *
-              list *
-            [acc item index]
-              acc.at 0 > mp!
-              if. > @
-                not.
-                  eq.
-                    length.
-                      mp.found item
-                    0
-                acc
-                *
-                  mp.with item 1
-                  (acc.at 1).with index
-          1
-        list *
-        [acc index]
-          acc.with (lst.at index) > @
+    reduced.
+      at.
+        reducedi.
+          lst
+          *
+            map *
+            list *
+          [acc item index]
+            acc.at 0 > mp!
+            if. > @
+              not.
+                eq.
+                  length.
+                    mp.found item
+                  0
+              acc
+              *
+                mp.with item 1
+                (acc.at 1).with index
+        1
+      list *
+      [acc index]
+        acc.with (lst.at index) > @
 
   [x] > with
     set > @
