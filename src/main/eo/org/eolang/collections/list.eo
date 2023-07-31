@@ -48,13 +48,11 @@
     concat. > @
       with.
         head.
-          list
-            arr
+          ^
           i
         x
       tail.
-        list
-          arr
+        ^
         minus.
           arr.length
           i
@@ -345,28 +343,33 @@
             1
           func
 
-  # Get the first i-th elements from
-  # the start of the list
-  # @todo #112:30min Make list.head understand negative index.
-  #  Right now we can use negative index and the result would be
-  #  an empty list. It would be better to make this index
-  #  as index from the end of the list.
+  # Get the first i-th elements from the start of the list
   [i] > head
     i > index!
+    0 > zero!
 
-    if. > @
-      index.lte 0
-      list *
-      if.
-        index.gte (^.length)
+    switch > @
+      *
+        index.eq zero
+        list *
+      *
+        index.lt zero
+        ^.tail
+          index.neg
+      *
+        index.gte
+          ^.length
         ^
-        ^.reducedi
-          list *
-          [acc item idx]
-            if. > @
-              idx.gte index
-              acc
-              acc.with item
+      *
+        TRUE
+        list
+          ^.reducedi
+            *
+            [acc item idx]
+              if. > @
+                idx.gte index
+                acc
+                acc.with item
 
   # Get the last i-th elements from
   # the end of the list
