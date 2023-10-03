@@ -35,7 +35,7 @@
   if. > @!
     lst.is-empty
     lst
-    reduced. > @
+    reduced.
       at.
         reducedi.
           lst

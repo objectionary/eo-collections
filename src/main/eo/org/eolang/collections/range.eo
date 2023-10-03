@@ -47,7 +47,7 @@
     [acc current last] > append
       if. > @
         current.lt last
-        append > @
+        append
           acc.with current
           current.next
           last
