@@ -30,6 +30,7 @@
 
 [m] > multimap
   memory 0 > elements-amount
+  elements-amount > size
 
   # Returns list of all keys in multimap
   [] > keys
@@ -39,10 +40,6 @@
         caa
       [curr]
         curr.at 0 > @
-
-  # Returns amount of elements in multimap
-  [] > size
-    elements-amount > @
 
   [arr] > concat-all-arrays
     reduced. > @

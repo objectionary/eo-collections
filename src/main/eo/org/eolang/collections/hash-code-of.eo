@@ -66,9 +66,7 @@
               index.plus 1
               bytes
               zero-as-bytes
-
         0.as-bytes > zero-as-bytes!
-
         rec-hash-code > @
           1
           0

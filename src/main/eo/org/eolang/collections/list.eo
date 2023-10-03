@@ -347,7 +347,6 @@
   [i] > head
     i > index!
     0 > zero!
-
     switch > @
       *
         index.eq zero

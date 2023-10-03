@@ -35,6 +35,7 @@
 #  or simplify them. Also we should remove rebuild method in multimap file
 [m] > map
   memory 0 > elements-amount
+  elements-amount > size
 
   # Returns list of all keys in multimap
   [] > keys
@@ -62,10 +63,6 @@
           eq.
             x
             key
-
-  # Returns amount of elements in multimap
-  [] > size
-    elements-amount > @
 
   # Returns the new map with added object
   # Replaces if there was one before

@@ -47,13 +47,11 @@
     [acc current last] > append
       if. > @
         current.lt last
-        []
-          append > @
-            acc.with current
-            current.next
-            last
+        append > @
+          acc.with current
+          current.next
+          last
         acc
-
     if. > @
       start.lt end
       append
@@ -61,4 +59,3 @@
         start.next
         end
       *
-
