@@ -23,8 +23,8 @@
 +alias org.eolang.collections.bytes-as-array
 +home https://github.com/objectionary/eo-collections
 +package org.eolang.collections
-+rt jvm org.eolang:eo-collections:0.0.9
-+version 0.0.9
++rt jvm org.eolang:eo-collections:0.10.0
++version 0.10.0
 
 # Hash code - the pseudo-unique integer representation of an object.
 #
@@ -36,7 +36,7 @@
       eq.
         h.as-bytes > h-as-bytes!
         01-
-      1232
+      1231
     *
       h-as-bytes.eq 00-
       1237
@@ -66,9 +66,7 @@
               index.plus 1
               bytes
               zero-as-bytes
-
         0.as-bytes > zero-as-bytes!
-
         rec-hash-code > @
           1
           0

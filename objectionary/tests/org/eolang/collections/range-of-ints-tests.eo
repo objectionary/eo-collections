@@ -20,52 +20,65 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
-+alias org.eolang.collections.hash-code-of
++alias org.eolang.collections.list
++alias org.eolang.collections.range-of-ints
 +alias org.eolang.hamcrest.assert-that
-+alias org.eolang.math.number
 +home https://github.com/objectionary/eo-collections
-+junit
 +package org.eolang.collections
++tests
 +version 0.10.0
 
-# @todo #156:30min Add more tests for hash-code-of object.
-#  It would be interesting to test floating numbers and, maybe, big numbers
-#  (or some corner cases)
-[] > hash-code-bools-is-integer
+[] > simple-range-of-ints
   assert-that > @
-    and.
-      is-int.
-        number
-          hash-code-of TRUE
-      is-int.
-        number
-          hash-code-of FALSE
-    $.equal-to TRUE
-
-[] > hash-of-int-is-int
-  assert-that > @
-    is-int.
-      number
-        hash-code-of 42
-    $.equal-to TRUE
-
-[] > hash-codes-of-the-same-numbers-are-equal
-  42 > forty-two!
-  assert-that > @
-    hash-code-of forty-two
+    list
+      range-of-ints 1 10
     $.equal-to
-      hash-code-of forty-two
+      list
+        * 1 2 3 4 5 6 7 8 9
 
-[] > hash-code-of-the-same-strings-are-equal
-  "hello" > str!
+[] > empty-range-of-ints
   assert-that > @
-    hash-code-of str
+    length.
+      range-of-ints 10 10
+    $.equal-to 0
+
+[] > range-of-descending-ints
+  assert-that > @
+    length.
+      range-of-ints 10 1
+    $.equal-to 0
+
+[] > range-of-negative-ints
+  assert-that > @
+    list
+      range-of-ints -5 0
     $.equal-to
-      hash-code-of str
+      list
+        * -5 -4 -3 -2 -1
 
-[] > hash-code-of-different-numbers-are-different
-  assert-that > @
-    hash-code-of 42
-    $.not
-      $.equal-to
-        hash-code-of 24
+[] > range-of-ints-with-not-int-start
+  try > @
+    range-of-ints 1.2 3
+    [ex]
+      assert-that > @
+        ex
+        $.equal-to "some of the arguments are not integers"
+    nop
+
+[] > range-of-ints-with-not-int-end
+  try > @
+    range-of-ints 1 2.5
+    [ex]
+      assert-that > @
+        ex
+        $.equal-to "some of the arguments are not integers"
+    nop
+
+[] > range-of-not-ints
+  try > @
+    range-of-ints 1.5 5.2
+    [ex]
+      assert-that > @
+        ex
+        $.equal-to "some of the arguments are not integers"
+    nop

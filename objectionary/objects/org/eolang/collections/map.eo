@@ -20,13 +20,14 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 
++alias org.eolang.collections.hash-code-of
 +alias org.eolang.collections.list
 +alias org.eolang.collections.multimap
 +alias org.eolang.math.number
 +home https://github.com/objectionary/eo-collections
 +package org.eolang.collections
-+rt jvm org.eolang:eo-collections:0.0.9
-+version 0.0.9
++rt jvm org.eolang:eo-collections:0.10.0
++version 0.10.0
 
 # @todo #15:30min Current implementation using rebuild.
 #  We should implement all methods only via using rebuilded method,
@@ -34,6 +35,7 @@
 #  or simplify them. Also we should remove rebuild method in multimap file
 [m] > map
   memory 0 > elements-amount
+  elements-amount > size
 
   # Returns list of all keys in multimap
   [] > keys
@@ -62,15 +64,8 @@
             x
             key
 
-  # Returns amount of elements in multimap
-  [] > size
-    elements-amount > @
-
   # Returns the new map with added object
   # Replaces if there was one before
-  # @todo #156:30min. Replace all "as-hash" object usings with "hash-code-of".
-  #  In order to make "eo-runtime" independent of "eo-collections" need to
-  #  replace all "as-hash" objects with new "hash-code-of" object.
   [key value] > with
     multimap * > mmp!
     * key value > new-pair!
@@ -88,7 +83,8 @@
   # If no element was found, it returns an empty array
   [key] > found
     multimap * > mmp!
-    number (key.as-hash) > num!
+    number > num!
+      hash-code-of key
     if. > @
       eq.
         m.length
