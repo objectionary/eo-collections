@@ -49,7 +49,14 @@
         hash-code-of 42
     $.equal-to TRUE
 
-[] > hash-codes-of-the-same-int-are-equal
+[] > hash-codes-of-the-same-int-are-equal-1
+  123456789012345678 > big-int!
+  assert-that > @
+    hash-code-of big-int
+    $.equal-to
+      hash-code-of big-int
+
+[] > hash-codes-of-the-same-int-are-equal-2
   42 > forty-two!
   assert-that > @
     hash-code-of forty-two
