@@ -31,7 +31,7 @@
 # @todo #156:30min Add more tests for hash-code-of object.
 #  It would be interesting to test floating numbers and, maybe, big numbers
 #  (or some corner cases)
-[] > hash-code-bools-is-integer
+[] > hash-code-of-bools-is-integer
   assert-that > @
     and.
       is-int.
@@ -42,30 +42,79 @@
           hash-code-of FALSE
     $.equal-to TRUE
 
-[] > hash-of-int-is-int
+[] > hash-code-of-int-is-int
   assert-that > @
     is-int.
       number
         hash-code-of 42
     $.equal-to TRUE
 
-[] > hash-codes-of-the-same-numbers-are-equal
+[] > hash-codes-of-the-same-int-are-equal
   42 > forty-two!
   assert-that > @
     hash-code-of forty-two
     $.equal-to
       hash-code-of forty-two
 
-[] > hash-code-of-the-same-strings-are-equal
+[] > hash-codes-of-different-int-are-not-equal-1
+  assert-that > @
+    hash-code-of 42
+    $.not
+      $.equal-to
+        hash-code-of 24
+
+[] > hash-codes-of-different-int-are-not-equal-2
+  assert-that > @
+    hash-code-of 42
+    $.not
+      $.equal-to
+        hash-code-of -42
+
+[] > hash-code-of-string-is-int
+  assert-that > @
+    is-int.
+      number
+        hash-code-of "hello"
+    $.equal-to TRUE
+
+[] > hash-codes-of-the-same-strings-are-equal
   "hello" > str!
   assert-that > @
     hash-code-of str
     $.equal-to
       hash-code-of str
 
-[] > hash-code-of-different-numbers-are-different
-  assert-that > @
-    hash-code-of 42
+# @todo #156:30min Enable this test after fixing issue #205
+#  Don't forget to rename this test
+[] > hash-codes-of-different-strings-are-not-equal-broken
+  assert-that > res
+    hash-code-of "hello!"
     $.not
       $.equal-to
-        hash-code-of 24
+        hash-code-of "help!!"
+  nop > @
+
+[] > hash-codes-of-different-strings-are-not-equal
+  assert-that > @
+    hash-code-of "hello"
+    $.not
+      $.equal-to
+        hash-code-of "bye!!!"
+
+[] > hash-code-of-abstract-object-is-int
+  [x] > obj
+    x > @
+  assert-that > @
+    is-int.
+      number
+        hash-code-of (obj 42)
+    $.equal-to TRUE
+
+[] > hash-codes-of-the-same-abstract-objects-are-equal
+  [x] > obj
+    x > @
+  obj 42 > forty-two-obj!
+  assert-that > @
+    hash-code-of forty-two-obj
+    $.equal-to
+      hash-code-of forty-two-obj
