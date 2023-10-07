@@ -89,7 +89,9 @@
       hash-code-of str
 
 # @todo #156:30min Enable this test after fixing issue #205
-#  Don't forget to rename this test
+#  Now all strings of the same length has same hash-code.
+#  This behavior is incorrect and need to be fixed.
+#  Don't forget to rename this test.
 [] > hash-codes-of-different-strings-are-not-equal-broken
   assert-that > res
     hash-code-of "hello!"
@@ -140,7 +142,7 @@
     $.equal-to TRUE
 
 [] > hash-codes-of-the-same-floats-are-equal-1
-  9.11 > emergency!
+  0.911 > emergency!
   assert-that > @
     hash-code-of emergency
     $.equal-to
