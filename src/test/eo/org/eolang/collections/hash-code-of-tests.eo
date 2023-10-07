@@ -28,9 +28,6 @@
 +package org.eolang.collections
 +version 0.0.0
 
-# @todo #156:30min Add more tests for hash-code-of object.
-#  It would be interesting to test floating numbers and, maybe, big numbers
-#  (or some corner cases)
 [] > hash-code-of-bools-is-integer
   assert-that > @
     and.
