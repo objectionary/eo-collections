@@ -125,3 +125,47 @@
     hash-code-of forty-two-obj
     $.equal-to
       hash-code-of forty-two-obj
+
+[] > hash-codes-of-different-abstract-objects-are-not-equal
+  [x] > obj
+    x > @
+  assert-that > @
+    hash-code-of (obj 42)
+    $.not
+      $.equal-to
+        hash-code-of (obj "42")
+
+[] > hash-code-of-float-is-int
+  assert-that > @
+    is-int.
+      number
+        hash-code-of 42.42
+    $.equal-to TRUE
+
+[] > hash-codes-of-the-same-floats-are-equal-1
+  9.11 > emergency!
+  assert-that > @
+    hash-code-of emergency
+    $.equal-to
+      hash-code-of emergency
+
+[] > hash-codes-of-the-same-floats-are-equal-2
+  42.42e42 > big-float!
+  assert-that > @
+    hash-code-of big-float
+    $.equal-to
+      hash-code-of big-float
+
+[] > hash-codes-of-different-floats-are-not-equal-1
+  assert-that > @
+    hash-code-of 3.14
+    $.not
+      $.equal-to
+        hash-code-of 2.72
+
+[] > hash-codes-of-different-floats-are-not-equal-2
+  assert-that > @
+    hash-code-of 3.22
+    $.not
+      $.equal-to
+        hash-code-of -3.22
