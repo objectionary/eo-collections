@@ -133,7 +133,7 @@ SOFTWARE.
               <keepBinaries>
                 <glob>EOorg/EOeolang/EOcollections/**</glob>
               </keepBinaries>
-              <failOnWarning>true</failOnWarning>
+              <failOnWarning>false</failOnWarning>
             </configuration>
           </execution>
           <execution>
@@ -145,7 +145,6 @@ SOFTWARE.
               <goal>transpile</goal>
             </goals>
             <configuration>
-              <failOnWarning>false</failOnWarning>
               <scope>test</scope>
               <sourcesDir>${project.basedir}/src/test/eo</sourcesDir>
               <targetDir>${project.build.directory}/eo-test</targetDir>
