@@ -428,7 +428,7 @@
 
 [] > reduce-with-memory-test
   eq. > @
-    foo
+    foo.as-int
     7
 
   [] > foo
@@ -444,7 +444,7 @@
 
 [] > reduce-with-memory-test-2
   eq. > @
-    foo
+    foo.as-int
     7
 
   [] > foo
