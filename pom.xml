@@ -130,7 +130,6 @@ SOFTWARE.
               <goal>copy</goal>
             </goals>
             <configuration>
-              <failOnWarning>false</failOnWarning>
               <keepBinaries>
                 <glob>EOorg/EOeolang/EOcollections/**</glob>
               </keepBinaries>
@@ -146,6 +145,7 @@ SOFTWARE.
               <goal>transpile</goal>
             </goals>
             <configuration>
+              <failOnWarning>false</failOnWarning>
               <scope>test</scope>
               <sourcesDir>${project.basedir}/src/test/eo</sourcesDir>
               <targetDir>${project.build.directory}/eo-test</targetDir>
