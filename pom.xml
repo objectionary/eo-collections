@@ -130,6 +130,7 @@ SOFTWARE.
               <goal>copy</goal>
             </goals>
             <configuration>
+              <failOnWarning>false</failOnWarning>
               <keepBinaries>
                 <glob>EOorg/EOeolang/EOcollections/**</glob>
               </keepBinaries>
