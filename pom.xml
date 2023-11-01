@@ -31,7 +31,7 @@ SOFTWARE.
   </parent>
   <groupId>org.eolang</groupId>
   <artifactId>eo-collections</artifactId>
-  <version>1.0-SNAPSHOT</version>
+  <version>0.10.2</version>
   <packaging>jar</packaging>
   <name>eo-collections</name>
   <description>EO Objects for Manipulating with Lists, Maps, Sets, Stacks, Vectors, etc.</description>
