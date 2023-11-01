@@ -26,8 +26,8 @@
 +alias org.eolang.math.number
 +home https://github.com/objectionary/eo-collections
 +package org.eolang.collections
-+rt jvm org.eolang:eo-collections:0.10.0
-+version 0.10.0
++rt jvm org.eolang:eo-collections:0.10.2
++version 0.10.2
 
 # @todo #15:30min Current implementation using rebuild.
 #  We should implement all methods only via using rebuilded method,
@@ -35,7 +35,7 @@
 #  or simplify them. Also we should remove rebuild method in multimap file
 [m] > map
   memory 0 > elements-amount
-  elements-amount > size
+  elements-amount.as-int > size
 
   # Returns list of all keys in multimap
   [] > keys
@@ -76,7 +76,7 @@
     mmp.rebuild harr arr > table!
     map table > mp
     seq > @
-      (mp.elements-amount).write (arr.length)
+      mp.elements-amount.write (arr.length)
       mp
 
   # Returns an array with the found value
@@ -102,5 +102,5 @@
     mmp.rebuild harr arr > table!
     map table > mp
     seq > @
-      (mp.elements-amount).write (arr.length)
+      mp.elements-amount.write (arr.length)
       mp
