@@ -397,9 +397,67 @@
   #  and `gte`, and we obtain the remaining comparison operators
   #  from their negations.
   #
-  # TRUE if the current list is lexicographically
+  # Returns TRUE if the current list is lexicographically
   # greater than the passed list. Otherwise, FALSE.
   [other] > gt
+    lt. > first-smaller!
+      ^.length
+      other.length
+    if. > res!
+      first-smaller
+      reducedi.
+        ^
+        0
+        [a i x]
+          if. > @
+            neq
+              a
+              0
+            a.plus 0
+            if.
+              gt.
+                x
+                other.at i
+              1
+              if.
+                gt.
+                  other.at i
+                  x
+                -1
+                0
+      reducedi.
+        other
+        0
+        [a i x]
+          if. > @
+            neq
+              a
+              0
+            a.plus 0
+            if.
+              gt.
+                x
+                ^.at i
+              -1
+              if.
+                gt.
+                  ^.at i
+                  x
+                1
+                0
+    if. > @
+      neq
+        res
+        0
+      res
+      not.
+        first-smaller
+
+    [a b] > neq
+      not. > @
+        eq.
+          a
+          b
 
   # TRUE if the current list is lexicographically
   # greater than or equal to the passed list. Otherwise, FALSE.
