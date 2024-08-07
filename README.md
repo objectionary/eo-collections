@@ -13,6 +13,9 @@
 ![Lines of code](https://img.shields.io/tokei/lines/github/objectionary/eo-collections)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://github.com/objectionary/eo-collections/blob/master/LICENSE.txt)
 
+**This repository is deprecated! We've moved all EO objects from this repository
+to [objectionary/eo](https://github.com/objectionary/eo).**
+
 [EO](https://www.eolang.org) objects for collections. The abstractions of lists, maps, sets, and others.
 
 This is how it works:
